@@ -43,50 +43,7 @@ namespace MSader.OpenAI.Content
 
     public class WebScrapping
     {
-        public async Task<string> ScrapTheWebSite(string url)
-        {
-            try
-            {
-                // Azure OpenAI API credentials
-                var endpoint = "{replacewith your open ai endpoint in azure}";
-                var apiKey = "{replace with the open ai key}";
 
-                // Validation for missing API key or endpoint
-                if (string.IsNullOrEmpty(endpoint) || string.IsNullOrEmpty(apiKey))
-                {
-                    throw new InvalidOperationException("Azure OpenAI endpoint or API key is not set.");
-                }
-
-                var website = new Website(url); // Website object to fetch the contents
-                await website.FetchContentsAsync(); // Scrape content
-
-                AzureKeyCredential credential = new AzureKeyCredential(apiKey);
-                var openAiClient = new AzureOpenAIClient(new Uri(endpoint), credential);
-                var chatClient = openAiClient.GetChatClient("gpt-4o-mini");
-
-                // Request to summarize the website's text
-                var response = await chatClient.CompleteChatAsync(
-                    new ChatMessage[] {
-                    ChatMessage.CreateSystemMessage("Summarize the following webpage content: " + website.Text)
-                    },
-                    new ChatCompletionOptions { MaxOutputTokenCount = 100 }
-                );
-
-                // Building the result summary and links
-                StringBuilder sb = new StringBuilder();
-                foreach (var item in response.Value.Content.ToList())
-                {
-                    sb.Append(item.Text.Trim());
-                }
-
-                string result = $"Summary:\n{sb.ToString()}\nLinks:\n{string.Join("\n", website.GetLinks())}";
-                return result;
-            }
-            catch (Exception ex)
-            {
-                return $"An error occurred: {ex.Message}";
-            }
-        }
     }
 
     public class Website
