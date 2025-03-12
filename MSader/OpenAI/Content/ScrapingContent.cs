@@ -60,42 +60,7 @@ namespace MSader.OpenAI.Content
             Url = url;
         }
 
-        public async Task FetchContentsAsync()
-        {
-            client.DefaultRequestHeaders.Add("User-Agent", userAgent);
-            var response = await client.GetAsync(Url);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new HttpRequestException($"Failed to fetch the URL: {Url}. Status code: {response.StatusCode}");
-            }
-
-            var body = await response.Content.ReadAsStringAsync();
-            var doc = new HtmlDocument();
-            doc.LoadHtml(body);
-
-            // Extracting title and body text, excluding irrelevant HTML tags like scripts and images
-            Title = doc.DocumentNode.SelectSingleNode("//title")?.InnerText ?? "No title found";
-            var bodyNode = doc.DocumentNode.SelectSingleNode("//body");
-            if (bodyNode != null)
-            {
-                foreach (var node in bodyNode.SelectNodes("//script|//style|//img|//input") ?? Enumerable.Empty<HtmlNode>())
-                {
-                    node.Remove();
-                }
-                Text = bodyNode.InnerText.Trim();
-            }
-            else
-            {
-                Text = string.Empty;
-            }
-
-            // Extracting all links from anchor tags
-            Links = doc.DocumentNode.SelectNodes("//a[@href]")
-                ?.Select(node => node.GetAttributeValue("href", string.Empty))
-                .Where(href => !string.IsNullOrEmpty(href))
-                .ToList() ?? new List<string>();
-        }
 
         public string GetContents()
         {
