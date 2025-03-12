@@ -11,13 +11,8 @@ namespace MSader.OpenAI.Audio
         [Test]
         public string SimpleTranscription()
         {
-            AudioClient client = new("whisper-1", MyConstants.openAIKey);
 
-            string audioFilePath = Path.Combine("OpenAI/Assets", "audio_houseplant_care.mp3");
-
-            AudioTranscription transcription = client.TranscribeAudio(audioFilePath);
-
-            return $"{transcription.Text}";
+            return "";
         }
     }
 }

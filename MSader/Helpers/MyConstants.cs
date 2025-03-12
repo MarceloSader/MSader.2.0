@@ -2,6 +2,6 @@
 {
     public class MyConstants
     {
-        public static string openAIKey = "";
+        public static string teste = "";
     }
 }
