@@ -1,4 +1,4 @@
-﻿namespace msader.Helpers
+﻿namespace MSader.Helpers
 {
     public class MyConstants
     {

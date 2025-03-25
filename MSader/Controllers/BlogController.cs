@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MSader.BLL;
+using MSader.DTO;
 
 namespace MSader.Controllers
 {

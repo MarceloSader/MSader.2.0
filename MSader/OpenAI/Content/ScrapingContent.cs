@@ -1,4 +1,4 @@
-﻿using msader.Helpers;
+﻿using MSader.Helpers;
 using NUnit.Framework;
 using System.Net;
 using HtmlAgilityPack;

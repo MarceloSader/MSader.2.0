@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MSader.OpenAI.Audio;
 
 namespace MSader.Controllers
 {
@@ -19,9 +18,8 @@ namespace MSader.Controllers
         {
             string openAIResponse = "";
 
-            AudioFeatures audioFeatures = new AudioFeatures();
-
-            openAIResponse = audioFeatures.SimpleTranscription();
+            //MSader.OpenAI.AudioFeatures audioFeatures = new AudioFeatures();
+            //openAIResponse = audioFeatures.SimpleTranscription();
 
             return Json(new { openAIResponse });
         }

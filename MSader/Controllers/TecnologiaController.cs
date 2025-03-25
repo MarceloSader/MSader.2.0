@@ -1,6 +1,5 @@
 ﻿using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
-using MSader.OpenAI.Audio;
 using MSader.OpenAI.Content;
 
 namespace MSader.Controllers
@@ -17,16 +16,16 @@ namespace MSader.Controllers
             return View("Features");
         }
 
-        public IActionResult MyTranscription()
-        {
-            string openAIResponse = "";
+        //public IActionResult MyTranscription()
+        //{
+        //    string openAIResponse = "";
 
-            AudioFeatures audioFeatures = new AudioFeatures();
+        //    AudioFeatures audioFeatures = new AudioFeatures();
 
-            openAIResponse = audioFeatures.SimpleTranscription();
+        //    openAIResponse = audioFeatures.SimpleTranscription();
 
-            return Json(new { openAIResponse });
-        }
+        //    return Json(new { openAIResponse });
+        //}
 
         public IActionResult GetContent()
         {

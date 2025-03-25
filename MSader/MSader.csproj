@@ -28,4 +28,8 @@
     <PackageReference Include="OpenAI" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MSader.BLL\MSader.BLL.csproj" />
+  </ItemGroup>
+
 </Project>
