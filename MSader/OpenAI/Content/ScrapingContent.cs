@@ -5,6 +5,7 @@ using HtmlAgilityPack;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI.Chat;
+using OpenAI.Audio;
 using Azure.AI.OpenAI;
 using Azure;
 
