@@ -1,11 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MSader.Helpers;
 
 namespace MSader.Controllers
 {
     public class ConteudoController : Controller
     {
+
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public ConteudoController(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+
         public IActionResult Destra()
         {
+            ViewBag.Menu = NavigationHelper.BuildMenuHtml("Conteúdo", "Destra", _httpContextAccessor);
+
             return View("Destra");
         }
 

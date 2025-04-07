@@ -78,61 +78,9 @@
                                     <div class="header-nav header-nav-links header-nav-links-side-header header-nav-links-vertical header-nav-links-vertical-expand header-nav-click-to-open align-self-start">
                                         <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-4 header-nav-main-sub-effect-1">
                                             <nav class="collapse">
-                                                <ul class="nav nav-pills" id="mainNav">
-                                                    <li class="dropdown">
-                                                        <a class="active" href="~/Home/Index">
-                                                            Home
-                                                        </a>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="" href="~/Home/Jornada">
-                                                            Jornada
-                                                        </a>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="" href="~/Home/Tools">
-                                                            Canivete Suíço
-                                                        </a>
-                                                    </li>
-                                                    <li class="dropdown open">
-                                                        <a class="dropdown-item dropdown-toggle active" href="#">
-                                                            Inteligência Artificial
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li class="dropdown-submenu">
-                                                                <a class="dropdown-item" href="#">Conteúdo</a>
-                                                                <ul class="dropdown-menu">
-                                                                    <li><a class="dropdown-item" href="~/Conteudo/Destra">Destra</a></li>
-                                                                    <li><a class="dropdown-item" href="~/Conteudo/MedicinaVeterinaria">Medicina Veterinária</a></li>
-                                                                    <li><a class="dropdown-item" href="~/Conteudo/Tecnologia">Tecnologia</a></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li><a class="dropdown-item" href="~/AITools/AIVisual">Computer Vision</a></li>
-                                                            <li><a class="dropdown-item active" href="~/AITools/AINaturalLanguage">Natural Language</a></li>
-                                                            <li><a class="dropdown-item" href="~/AITools/AI">Knowledge Minings</a></li>
-                                                            <li><a class="dropdown-item" href="~/AITools/AI">Document Intelligence</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-item dropdown-toggle" href="#">
-                                                            Blog
-                                                        </a>
-                                                        <ul class="dropdown-menu">
-                                                            <li class="dropdown-submenu">
-                                                                <a class="dropdown-item" href="#">Reserva Cognitiva</a>
-                                                            </li>
-                                                            <li class="dropdown-submenu">
-                                                                <a class="dropdown-item" href="#">Tecnologia</a>
-                                                            </li>
-                                                            <li class="dropdown-submenu">
-                                                                <a class="dropdown-item" href="#">Mundo Animal</a>
-                                                            </li>
-                                                            <li class="dropdown-submenu">
-                                                                <a class="dropdown-item" href="#">Ciência</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+
+                                                @Html.Raw(ViewBag.Menu)
+                                            
                                             </nav>
                                         </div>
                                     </div>

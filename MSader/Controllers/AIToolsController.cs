@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Operations;
+using MSader.Helpers;
+using MSader.Models;
+using System.Diagnostics;
 
 namespace MSader.Controllers
 {
@@ -7,10 +9,24 @@ namespace MSader.Controllers
     public class AIToolsController : Controller
     {
         string msgReturn = "";
+
         string stStatus = "";
+
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        private readonly ILogger<AIToolsController> _logger;
+
+        public AIToolsController(ILogger<AIToolsController> logger, IHttpContextAccessor httpContextAccessor)
+        {
+            _logger = logger;
+
+            _httpContextAccessor = httpContextAccessor;
+        }
 
         public IActionResult AINaturalLanguage()
         {
+            ViewBag.Menu = NavigationHelper.BuildMenuHtml("Inteligência Artificial", "Destra", _httpContextAccessor);
+
             return View("AINaturalLanguage");
         }
 
