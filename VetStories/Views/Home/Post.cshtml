@@ -1,0 +1,389 @@
+﻿@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    MSader.DTO.PostDTO post = (MSader.DTO.PostDTO)ViewBag.Post;
+}
+
+<div class="body">
+
+    <div role="main" class="main">
+        <section class="page-header page-header-modern page-header-background page-header-background-md py-0 overlay overlay-color-primary overlay-show overlay-op-8" style="background-image: url(~/img/page-header/page-header-background-2.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 order-2 order-sm-1 align-self-center p-static">
+                        <div class="overflow-hidden">
+                            <ul class="breadcrumb breadcrumb-light d-block appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="100" style="animation-delay: 100ms;">
+                                <li><a href="~/Home/Index">Home</a></li>
+                                <li class="active">Post</li>
+                            </ul>
+                        </div>
+                        <div class="overflow-hidden pb-2">
+                            <h1 class="text-10 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300" style="animation-delay: 300ms;">Gostou do projeto? Compre uma <strong>caneca</strong></h1>
+                        </div>
+                        <div class="appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+                            <span class="sub-title text-4 mt-4">Ajude a manter nosso projeto. Visite nossa loja</span>
+                        </div>
+                        <div class="appear-animation d-inline-block animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+                            <a href="http://masder.com.br" target="_blank" class="btn btn-modern btn-dark mt-4">Buy Now <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                        <div class="appear-animation d-inline-block animated rotateInUpRight appear-animation-visible" data-appear-animation="rotateInUpRight" data-appear-animation-delay="500" style="animation-delay: 500ms;">
+                            <span class="arrow hlt" style="top: 40px;"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 order-1 order-sm-2 align-items-end justify-content-end d-flex pt-5">
+                        <div style="min-height: 350px;" class="overflow-hidden">
+                            <img alt="" src="~/img/custom-header.png" class="img-fluid appear-animation animated slideInUp appear-animation-visible" data-appear-animation="slideInUp" data-appear-animation-delay="600" data-appear-animation-duration="1s" style="animation-duration: 1s; animation-delay: 600ms;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="container py-4">
+
+            <div class="row">
+                <div class="col-lg-3 order-lg-2">
+                    <aside class="sidebar">
+                        <form action="page-search-results.html" method="get">
+                            <div class="input-group mb-3 pb-1">
+                                <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
+                                <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
+                            </div>
+                        </form>
+                        <h5 class="font-weight-semi-bold pt-4">Categories</h5>
+                        <ul class="nav nav-list flex-column mb-5">
+                            <li class="nav-item"><a class="nav-link" href="#">Design (2)</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Photos (4)</a>
+                                <ul>
+                                    <li class="nav-item"><a class="nav-link" href="#">Animals</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="#">Business</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Sports</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">People</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#">Videos (3)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Lifestyle (2)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Technology (1)</a></li>
+                        </ul>
+                        <div class="tabs tabs-dark mb-4 pb-2">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item"><a class="nav-link show active text-1 font-weight-bold text-uppercase" href="#popularPosts" data-bs-toggle="tab">Popular</a></li>
+                                <li class="nav-item"><a class="nav-link text-1 font-weight-bold text-uppercase" href="#recentPosts" data-bs-toggle="tab">Recent</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="popularPosts">
+                                    <ul class="simple-post-list">
+                                        <li>
+                                            <div class="post-image">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                                    <a href="blog-post.html">
+                                                        <img src="img/blog/square/blog-11.jpg" width="50" height="50" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="post-info">
+                                                <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                                                <div class="post-meta">
+                                                    Nov 10, 2024
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post-image">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                                    <a href="blog-post.html">
+                                                        <img src="img/blog/square/blog-24.jpg" width="50" height="50" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="post-info">
+                                                <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                                                <div class="post-meta">
+                                                    Nov 10, 2024
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post-image">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                                    <a href="blog-post.html">
+                                                        <img src="img/blog/square/blog-42.jpg" width="50" height="50" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="post-info">
+                                                <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                                <div class="post-meta">
+                                                    Nov 10, 2024
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" id="recentPosts">
+                                    <ul class="simple-post-list">
+                                        <li>
+                                            <div class="post-image">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                                    <a href="blog-post.html">
+                                                        <img src="img/blog/square/blog-24.jpg" width="50" height="50" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="post-info">
+                                                <a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+                                                <div class="post-meta">
+                                                    Nov 10, 2024
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post-image">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                                    <a href="blog-post.html">
+                                                        <img src="img/blog/square/blog-42.jpg" width="50" height="50" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="post-info">
+                                                <a href="blog-post.html">Odiosters Nullam Vitae</a>
+                                                <div class="post-meta">
+                                                    Nov 10, 2024
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="post-image">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                                    <a href="blog-post.html">
+                                                        <img src="img/blog/square/blog-11.jpg" width="50" height="50" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="post-info">
+                                                <a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+                                                <div class="post-meta">
+                                                    Nov 10, 2024
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="font-weight-semi-bold pt-4">About Us</h5>
+                        <p>Nulla nunc dui, tristique in semper vel, congue sed ligula. Nam dolor ligula, faucibus id sodales in, auctor fringilla libero. Nulla nunc dui, tristique in semper vel. Nam dolor ligula, faucibus id sodales in, auctor fringilla libero. </p>
+                        <h5 class="font-weight-semi-bold pt-4">Photos from Instagram</h5>
+                        <div class="instagram-feed" data-type="nomargins" class="mb-4 pb-1"></div>
+                        <h5 class="font-weight-semi-bold pt-4 mb-2">Tags</h5>
+                        <div class="mb-3 pb-1">
+                            <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">design</span></a>
+                            <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">brands</span></a>
+                            <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">video</span></a>
+                            <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">business</span></a>
+                            <a href="#"><span class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">travel</span></a>
+                        </div>
+                        <h5 class="font-weight-semi-bold pt-4">Find us on Facebook</h5>
+                        <div class="fb-page" data-href="https://www.facebook.com/OklerThemes/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/OklerThemes/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/OklerThemes/">Okler Themes</a></blockquote></div>
+                    </aside>
+                </div>
+                <div class="col-lg-9 order-lg-1">
+                    <div class="blog-posts single-post">
+
+                        <article class="post post-large blog-single-post border-0 m-0 p-0">
+                            <div class="post-image ms-0">
+                                <a href="blog-post.html">
+                                    <img src="img/blog/wide/blog-11.jpg" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="" />
+                                </a>
+                            </div>
+
+                            <div class="post-date ms-0">
+                                <span class="day">10</span>
+                                <span class="month">Jan</span>
+                            </div>
+
+                            <div class="post-content ms-0">
+
+                                <h2 class="font-weight-semi-bold"><a href="blog-post.html">Class aptent taciti sociosqu ad litora torquent</a></h2>
+
+                                <div class="post-meta">
+                                    <span><i class="far fa-user"></i> By <a href="#">John Doe</a> </span>
+                                    <span><i class="far fa-folder"></i> <a href="#">Lifestyle</a>, <a href="#">Design</a> </span>
+                                    <span><i class="far fa-comments"></i> <a href="#">12 Comments</a></span>
+                                </div>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lectus lacus, rutrum sit amet placerat et, bibendum nec mauris. Duis molestie, purus eget placerat viverra, nisi odio gravida sapien, congue tincidunt nisl ante nec tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis, massa fringilla consequat blandit, mauris ligula porta nisi, non tristique enim sapien vel nisl. Suspendisse vestibulum lobortis dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent nec tempus nibh. Donec mollis commodo metus et fringilla. Etiam venenatis, diam id adipiscing convallis, nisi eros lobortis tellus, feugiat adipiscing ante ante sit amet dolor. Vestibulum vehicula scelerisque facilisis. Sed faucibus placerat bibendum. Maecenas sollicitudin commodo justo, quis hendrerit leo consequat ac. Proin sit amet risus sapien, eget interdum dui. Proin justo sapien, varius sit amet hendrerit id, egestas quis mauris.</p>
+                                <p>Ut ac elit non mi pharetra dictum nec quis nibh. Pellentesque ut fringilla elit. Aliquam non ipsum id leo eleifend sagittis id a lorem. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam massa mauris, viverra et rhoncus a, feugiat ut sem. Quisque ultricies diam tempus quam molestie vitae sodales dolor sagittis. Praesent commodo sodales purus. Maecenas scelerisque ligula vitae leo adipiscing a facilisis nisl ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                                <p>Curabitur non erat quam, id volutpat leo. Nullam pretium gravida urna et interdum. Suspendisse in dui tellus. Cras luctus nisl vel risus adipiscing aliquet. Phasellus convallis lorem dui. Quisque hendrerit, lectus ut accumsan gravida, leo tellus porttitor mi, ac mattis eros nunc vel enim. Nulla facilisi. Nam non nulla sed nibh sodales auctor eget non augue. Pellentesque sollicitudin consectetur mauris, eu mattis mi dictum ac. Etiam et sapien eu nisl dapibus fermentum et nec tortor.</p>
+                                <p>Curabitur nec nulla lectus, non hendrerit lorem. Quisque lorem risus, porttitor eget fringilla non, vehicula sed tortor. Proin enim quam, vulputate at lobortis quis, condimentum at justo. Phasellus nec nisi justo. Ut luctus sagittis nulla at dapibus. Aliquam ullamcorper commodo elit, quis ornare eros consectetur a. Curabitur nulla dui, fermentum sed dapibus at, adipiscing eget nisi. Aenean iaculis vehicula imperdiet. Donec suscipit leo sed metus vestibulum pulvinar. Phasellus bibendum magna nec tellus fringilla faucibus. Phasellus mollis scelerisque volutpat. Ut sed molestie turpis. Phasellus ultrices suscipit tellus, ac vehicula ligula condimentum et.</p>
+                                <p>Aenean metus nibh, molestie at consectetur nec, molestie sed nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec euismod urna. Donec gravida pharetra ipsum, non volutpat ipsum sagittis a. Phasellus ut convallis ipsum. Sed nec dui orci, nec hendrerit massa. Curabitur at risus suscipit massa varius accumsan. Proin eu nisi id velit ultrices viverra nec condimentum magna. Ut porta orci quis nulla aliquam at dictum mi viverra. Maecenas ultricies elit in tortor scelerisque facilisis. Mauris vehicula porttitor lacus, vel pretium est semper non. Ut accumsan rhoncus metus non pharetra. Quisque luctus blandit nisi, id tempus tellus pulvinar eu. Nam ornare laoreet mi a molestie. Donec sodales scelerisque congue. </p>
+
+                                <div class="post-block mt-5 post-share">
+                                    <h4 class="mb-3">Share this Post</h4>
+
+                                    <!-- Go to www.addtoany.com to customize -->
+                                    <!-- AddToAny BEGIN -->
+                                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                                        <a class="a2a_button_facebook"></a>
+                                        <a class="a2a_button_x"></a>
+                                        <a class="a2a_button_copy_link"></a>
+                                    </div>
+                                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                                    <!-- AddToAny END -->
+
+                                </div>
+
+                                <div class="post-block mt-4 pt-2 post-author">
+                                    <h4 class="mb-3">Author</h4>
+                                    <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
+                                        <a href="blog-post.html">
+                                            <img src="img/avatars/avatar.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <p><strong class="name"><a href="#" class="text-4 pb-2 pt-2 d-block">John Doe</a></strong></p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui. </p>
+                                </div>
+                                <div id="comments" class="post-block mt-5 post-comments">
+                                    <h4 class="mb-3">Comments (3)</h4>
+
+                                    <ul class="comments">
+                                        <li>
+                                            <div class="comment">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                    <img class="avatar" alt="" src="img/avatars/avatar-2.jpg">
+                                                </div>
+                                                <div class="comment-block">
+                                                    <div class="comment-arrow"></div>
+                                                    <span class="comment-by">
+                                                        <strong>John Doe</strong>
+                                                        <span class="float-end">
+                                                            <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
+                                                        </span>
+                                                    </span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+                                                    <span class="date float-end">January 12, 2024 at 1:38 pm</span>
+                                                </div>
+                                            </div>
+
+                                            <ul class="comments reply">
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                            <img class="avatar" alt="" src="img/avatars/avatar-3.jpg">
+                                                        </div>
+                                                        <div class="comment-block">
+                                                            <div class="comment-arrow"></div>
+                                                            <span class="comment-by">
+                                                                <strong>John Doe</strong>
+                                                                <span class="float-end">
+                                                                    <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
+                                                                </span>
+                                                            </span>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
+                                                            <span class="date float-end">January 12, 2024 at 1:38 pm</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="comment">
+                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                            <img class="avatar" alt="" src="img/avatars/avatar-4.jpg">
+                                                        </div>
+                                                        <div class="comment-block">
+                                                            <div class="comment-arrow"></div>
+                                                            <span class="comment-by">
+                                                                <strong>John Doe</strong>
+                                                                <span class="float-end">
+                                                                    <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
+                                                                </span>
+                                                            </span>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
+                                                            <span class="date float-end">January 12, 2024 at 1:38 pm</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="comment">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                    <img class="avatar" alt="" src="img/avatars/avatar.jpg">
+                                                </div>
+                                                <div class="comment-block">
+                                                    <div class="comment-arrow"></div>
+                                                    <span class="comment-by">
+                                                        <strong>John Doe</strong>
+                                                        <span class="float-end">
+                                                            <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
+                                                        </span>
+                                                    </span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                    <span class="date float-end">January 12, 2024 at 1:38 pm</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="comment">
+                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                    <img class="avatar" alt="" src="img/avatars/avatar.jpg">
+                                                </div>
+                                                <div class="comment-block">
+                                                    <div class="comment-arrow"></div>
+                                                    <span class="comment-by">
+                                                        <strong>John Doe</strong>
+                                                        <span class="float-end">
+                                                            <span> <a href="#"><i class="fas fa-reply"></i> Reply</a></span>
+                                                        </span>
+                                                    </span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                    <span class="date float-end">January 12, 2024 at 1:38 pm</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="post-block mt-5 post-leave-comment">
+                                    <h4 class="mb-3">Leave a comment</h4>
+
+                                    <form class="contact-form p-4 rounded bg-color-grey" action="php/contact-form.php" method="POST">
+                                        <div class="p-2">
+                                            <div class="row">
+                                                <div class="form-group col-lg-6">
+                                                    <label class="form-label required font-weight-bold text-dark">Full Name</label>
+                                                    <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" required>
+                                                </div>
+                                                <div class="form-group col-lg-6">
+                                                    <label class="form-label required font-weight-bold text-dark">Email Address</label>
+                                                    <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col">
+                                                    <label class="form-label required font-weight-bold text-dark">Comment</label>
+                                                    <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" name="message" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col mb-0">
+                                                    <input type="submit" value="Post Comment" class="btn btn-primary btn-modern" data-loading-text="Loading...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

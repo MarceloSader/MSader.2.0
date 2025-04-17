@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MSader.DTO
 {
     public class MidiaDTO : TipoMidiaDTO
     {
         #region Propriedades 
+
         public int IDMidia { get; set; }
 
         public string? NMTitulo { get; set; }
@@ -17,6 +14,10 @@ namespace MSader.DTO
 
         public string? DSLegenda { get; set; }
 
+        public string? DSUrlMidia { get; set; }
+
+        public int NROrdemPost { get; set; }
+
         #endregion
 
         #region Construtores 
@@ -24,10 +25,17 @@ namespace MSader.DTO
         public MidiaDTO()
         { }
 
+        public MidiaDTO(string urlBase, int idPost, int nrOrdemPost)
+        {
+            DSUrlMidia = $"{urlBase}/midia/posts/{idPost}/{idPost}-{nrOrdemPost}.png";
+
+            NROrdemPost = nrOrdemPost ;
+        }
+
         #endregion
 
-        #region Métodos 
-        #endregion
+            #region Métodos 
+            #endregion
     }
 
     public class TipoMidiaDTO

@@ -6,4 +6,20 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\midia\posts\1\**" />
+    <Compile Remove="wwwroot\midia\posts\2\**" />
+    <Content Remove="wwwroot\midia\posts\1\**" />
+    <Content Remove="wwwroot\midia\posts\2\**" />
+    <EmbeddedResource Remove="wwwroot\midia\posts\1\**" />
+    <EmbeddedResource Remove="wwwroot\midia\posts\2\**" />
+    <None Remove="wwwroot\midia\posts\1\**" />
+    <None Remove="wwwroot\midia\posts\2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MSader.BLL\MSader.BLL.csproj" />
+    <ProjectReference Include="..\MSader.DTO\MSader.DTO.csproj" />
+  </ItemGroup>
+
 </Project>

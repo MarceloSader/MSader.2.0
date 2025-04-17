@@ -1,78 +1,219 @@
 ﻿@{
-	ViewData["Title"] = "Blog";
-	Layout = "~/Views/Shared/_LayoutBasic.cshtml";
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_LayoutBasic.cshtml";
 }
 
 <div role="main" class="main">
 
-	<section class="page-header page-header-modern bg-color-grey page-header-lg">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 align-self-center p-static order-2 text-center">
-					<h1 class="font-weight-bold text-dark">Assuntos</h1>
-				</div>
-				<div class="col-md-12 align-self-center order-1">
-					<ul class="breadcrumb d-block text-center">
-						<li><a href="#">Home</a></li>
-						<li class="active">Pages</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
 
-	<div class="container pt-3 pb-2">
+    <div class="container pt-3 pb-2">
 
-		<div class="row pt-2">
-			<div class="col-lg-3 position-relative">
-				<aside class="Assuntos" id="Assuntos" data-plugin-sticky data-plugin-options="{'minWidth': 991, 'containerSelector': '.container', 'padding': {'top': 110}}">
+        <div class="row pt-2">
+            <div class="col-lg-12">
 
-					<h5 class="font-weight-semi-bold">Introdução</h5>
-					<ul class="nav nav-list flex-column mb-5">
-						<li class="nav-item"><a class="nav-link" data-hash data-hash-offset="0" data-hash-offset-lg="95" href="#first">First</a></li>
-						<li class="nav-item">
-							<a class="nav-link" data-hash data-hash-offset="0" data-hash-offset-lg="95" href="#second">Second</a>
-					
-						</li>
-						<li class="nav-item"><a class="nav-link" data-hash data-hash-offset="0" data-hash-offset-lg="95" href="#third">Third</a></li>
-						<li class="nav-item"><a class="nav-link" data-hash data-hash-offset="0" data-hash-offset-lg="95" href="#third">Fourth</a></li>
-					</ul>
+                <div class="row mb-5 pb-3">
 
-				</aside>
-			</div>
-			<div class="col-lg-9">
+                    <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                        <h4 class="mb-4">Image Top</h4>
 
-				<div id="first">
-					<h2 class="font-weight-extra-normal text-7 mb-2"><strong class="font-weight-extra-bold">Tecnologia da informação</strong></h2>
-					<p>Vamos ver se estou sabendo fazer.</p>
-					<p class="mb-0"><a href="~/Blog/Tecnologia" class="btn-flat btn-xs text-color-black"><strong class="text-2">VEJA MAIS</strong><i class="fas fa-angle-right p-relative top-1 ps-2"></i></a></p>
+                        <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
+                            <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
+                            <div class="card-body">
+                                <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
+                                <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')">Lorem ipsum dolor sit amet, consectetur adipiscing onsectetur adipiscing elit elit onsectetur adipiscing lit onsectetur adipiscing elit.</p>
+                                <p style="font-size:10px;color:#777">
+                                    <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
+                                    <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
+                                    <span><i class="far fa-eye"></i> 12 </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms; cursor:pointer">
+                        <h4 class="mb-4">Image Top</h4>
 
+                        <div class="card">
+                            <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image">
+                            <div class="card-body">
+                                <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                <p class="card-text mb-2 pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing onsectetur adipiscing elit elit onsectetur adipiscing lit onsectetur adipiscing elit.</p>
+                                <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms; cursor:pointer">
+                        <h4 class="mb-4">Image Top</h4>
 
-				</div>
+                        <div class="card">
+                            <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image">
+                            <div class="card-body">
+                                <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                <p class="card-text mb-2 pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing onsectetur adipiscing elit elit onsectetur adipiscing lit onsectetur adipiscing elit.</p>
+                                <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms; cursor:pointer">
+                        <h4 class="mb-4">Image Top</h4>
 
-				<div id="second">
-					<h2 class="font-weight-extra-normal text-7 mb-2"><strong class="font-weight-extra-bold">Reserva Cognitiva</strong></h2>
-					<p>Sobre a cognição e aprofundamento no assunto</p>
+                        <div class="card">
+                            <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image">
+                            <div class="card-body">
+                                <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                <p class="card-text mb-2 pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing onsectetur adipiscing elit elit onsectetur adipiscing lit onsectetur adipiscing elit.</p>
+                                <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
 
-				</div>
+                </div>
+                <div class="row mb-5 pb-3">
 
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                        <h4 class="mb-4">Image Top</h4>
 
-				<div id="third">
-					<h2 class="font-weight-extra-normal text-7 mb-2"><strong class="font-weight-extra-bold">Politica </strong></h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
-				</div>
+                        <div class="card">
+                            <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image">
+                            <div class="card-body">
+                                <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                <p class="card-text mb-2 pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing onsectetur adipiscing elit elit onsectetur adipiscing lit onsectetur adipiscing elit.</p>
+                                <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
 
-				<div id="Fouth">
-					<h2 class="font-weight-extra-normal text-7 mb-2"><strong class="font-weight-extra-bold">Ciência</strong></h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
-				</div>
+                    <div class="col-md-6 col-lg-8 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                        <h4 class="mb-4">Image Horizontal</h4>
 
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-lg-4">
+                                    <img src="~/img/blog/medium/blog-1.jpg" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                        <p class="card-text mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus nulla dui, in dapi </p>
+                                        <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-			</div>
+                        <div class="card mt-3">
+                            <div class="row g-0">
+                                <div class="col-lg-4">
+                                    <img src="~/img/blog/medium/blog-1.jpg" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                        <p class="card-text mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus nulla dui, in dapi </p>
+                                        <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-		</div>
+                <div class="row mb-5 pb-3">
 
-	</div>
+                    <div class="col-md-4 col-lg-3 border-radius-10 bg-color-grey bg-color-primary" style="cursor:pointer" onclick=" alert('hell world')">
+                        <article class="post post-medium border-0 pb-0 mb-5 ">
+                            <div class="post-image">
+                                <a href="blog-post.html">
+                                    <img src="~/img/blog/medium/blog-1.jpg" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="">
+                                </a>
+                            </div>
 
+                            <div class="post-content">
+                                <h4 class="card-title mt-2 mb-1 text-4 font-weight-bold text-secondary">Amazing Mountain</h4>
+
+                                <div class="post-meta">
+                                    <span><i class="far fa-thumbs-up" style="color:#aaa"></i> </span>
+                                    <span><i class="far fa-thumbs-down" style="color:#aaa"></i> </span>
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-4 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+                        <div class="card border-0 border-radius-10 bg-color-grey bg-color-primary">
+                            <div class="card-body">
+                                <i class="icon-user-following icons text-color-primary text-8"></i>
+                                <h4 class="card-title mt-2 mb-1 text-4 font-weight-bold">Card Title</h4>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus nulla dui, in dapi.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" style="animation-delay: 600ms;">
+                        <div class="card border-0 border-radius-10 bg-color-grey bg-color-primary">
+                            <div class="card-body">
+                                <i class="icon-user-following icons text-color-primary text-8"></i>
+                                <h4 class="card-title mt-2 mb-1 text-4 font-weight-bold">Card Title</h4>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus nulla dui, in dapi.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row mb-5 pb-3">
+
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                        <h4 class="mb-4">Image Top</h4>
+
+                        <div class="card">
+                            <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image">
+                            <div class="card-body">
+                                <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                <p class="card-text mb-2 pb-1">Lorem ipsum dolor sit amet, consectetur adipiscing onsectetur adipiscing elit elit onsectetur adipiscing lit onsectetur adipiscing elit.</p>
+                                <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-8 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                        <h4 class="mb-4">Image Horizontal</h4>
+
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-lg-4">
+                                    <img src="~/img/blog/medium/blog-1.jpg" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                        <p class="card-text mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus nulla dui, in dapi </p>
+                                        <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="row g-0">
+                                <div class="col-lg-4">
+                                    <img src="~/img/blog/medium/blog-1.jpg" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-1 text-4 font-weight-bold">Card Title</h4>
+                                        <p class="card-text mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus nulla dui, in dapi </p>
+                                        <a href="/" class="read-more text-color-primary font-weight-semibold text-2">Read More <i class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

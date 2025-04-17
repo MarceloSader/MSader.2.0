@@ -13,7 +13,6 @@ namespace MSader.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-
         public IActionResult Destra()
         {
             ViewBag.Menu = NavigationHelper.BuildMenuHtml("Conteúdo", "Destra", _httpContextAccessor);
