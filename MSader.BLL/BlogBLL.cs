@@ -1,5 +1,7 @@
-﻿using MSader.DAL;
+﻿using Microsoft.Data.SqlClient;
+using MSader.DAL;
 using MSader.DTO;
+using System.Runtime.Intrinsics.Arm;
 
 namespace MSader.BLL
 {
@@ -35,6 +37,14 @@ namespace MSader.BLL
                 post.SetUrlPost(urlBase, idBlog);
 
                 return post;
+            }
+        }
+
+        public void AddPostView(int idPost, string nrIP)
+        {
+            using (BlogDAL oDAL = new BlogDAL())
+            {
+                oDAL.AddPostView(idPost, nrIP);
             }
         }
     }

@@ -38,9 +38,18 @@ namespace VetStories.Controllers
 
             string urlBase = this.GetUrlBase(_httpContextAccessor);
 
+            string nrIP = "";
+
             using (BlogBLL oBLL = new BlogBLL())
             {
                 post = oBLL.GetPost(urlBase, p, b);
+
+                if (_httpContextAccessor.HttpContext != null)
+                {
+                    nrIP = _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
+                }
+
+                oBLL.AddPostView(p, nrIP);
             }
 
             ViewBag.Post = post;

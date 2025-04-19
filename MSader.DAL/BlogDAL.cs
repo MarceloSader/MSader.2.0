@@ -1,21 +1,40 @@
 ﻿using Microsoft.Data.SqlClient;
 using MSader.DTO;
 using Dapper;
+using System.Data;
 
 
 namespace MSader.DAL
 {
     public class BlogDAL : BaseDAL
     {
+        #region SAVING
+
+        public void AddPostView(int idPost, string nrIP)
+        {
+            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            {
+                var PostViewDTO = new PostViewDTO() { };
+
+                string sqlCommand = @$"INSERT PostView (IDPost, DTView, NRIP) VALUES(@IDPost, @DTView, @NRIP)";
+
+                var postView = new { IDPost = idPost, DTView = DateTime.Now, NRIP = nrIP };
+
+                var rowsAffected = connectionDB.Execute(sqlCommand, postView);
+            }
+        }
+
+        #endregion
+
+        #region GETTING
+
         public List<PostBlogDTO> GetHomePosts(int idBlog)
         {
             List<PostBlogDTO> posts = new List<PostBlogDTO>();
 
-            var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-
-            connectionDB.Open();
-
-            string query = @$"
+            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            {
+                string query = @$"
                 SELECT 
                      r.IDPessoa
                     ,b.NMPessoa
@@ -43,9 +62,8 @@ namespace MSader.DAL
                 ORDER BY a.NROrdemPost
                 ";
 
-            posts = connectionDB.Query<PostBlogDTO>(query).ToList();
-
-            connectionDB.Close();
+                posts = connectionDB.Query<PostBlogDTO>(query).ToList();
+            }
 
             return posts;
         }
@@ -95,12 +113,11 @@ namespace MSader.DAL
 
         public PostDTO GetPost(int idPost, int idBlog)
         {
- 
-            var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            PostDTO post = new PostDTO();
 
-            connectionDB.Open();
-
-            string query = @$"
+            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            {
+                string queryGetPost = @$"
                 SELECT 
                      r.IDPessoa
                     ,b.NMPessoa
@@ -128,12 +145,18 @@ namespace MSader.DAL
                 ORDER BY a.NROrdemPost
                 ";
 
-            PostDTO post = connectionDB.Query<PostDTO>(query).First();
+                string queryGetPostViews = @$"SELECT COUNT(*) FROM PostView WHERE IDPost = {idPost}";
 
-            connectionDB.Close();
+                post = connectionDB.Query<PostDTO>(queryGetPost).First();
+
+                post.NRPostViews = connectionDB.Query<int>(queryGetPostViews).First();
+            }
 
             return post;
         }
+
+        #endregion
+
     }
 }
 

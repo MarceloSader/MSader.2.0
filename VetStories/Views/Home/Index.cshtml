@@ -18,11 +18,10 @@
                                     <div class="card">
                                         <a href="@homeBlog.PostsCarousel[0].DSUrlPost"><img class="card-img-top" src="@homeBlog.PostsCarousel[0].Midias[0].DSUrlMidia" title="@homeBlog.PostsCarousel[0].DSTituloPost" style="cursor:pointer"></a>
                                         <div class="card-body">
-                                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.PostsCarousel[0].DSTituloPost</h4>
-                                            <p class="card-text mb-2 pb-1" style="cursor:pointer; font-size:8px" onclick="alert('Text')">@homeBlog.PostsCarousel[0].DSSubTituloPost</p>
-                                            <div style="font-size:10px;color:#777">
-                                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.PostsCarousel[0].DSAncoraPost</span>
-                                                <span><i class="far fa-eye"></i> @homeBlog.PostsCarousel[0].NRPostViews </span>
+                                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.PostsCarousel[0].DSUrlPost'">@homeBlog.PostsCarousel[0].DSTituloPost</h4>
+                                            <div style="font-size:11px; color:#777">
+                                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.PostsCarousel[0].DSAncoraPost</span>
+                                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.PostsCarousel[0].NRPostViews </span>
                                             </div>
                                         </div>
                                     </div>
@@ -34,13 +33,13 @@
                                     <div class="owl-item active" style="width: 546px; margin-right: 10px;">
                                         <div class="col-md-12 col-lg-12 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                                             <div class="card">
-                                                <a href="@homeBlog.PostsCarousel[0].DSUrlPost"><img class="card-img-top" src="@homeBlog.PostsCarousel[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
+                                                <a href="@homeBlog.PostsCarousel[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.PostsCarousel[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                                                 <div class="card-body">
-                                                    <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.PostsCarousel[i].DSTituloPost</h4>
-                                                    <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                                                    <div style="font-size:10px;color:#777">
-                                                        <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.PostsCarousel[i].DSAncoraPost</span>
-                                                        <span><i class="far fa-eye"></i> @homeBlog.PostsCarousel[i].NRPostViews </span>
+                                                    <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.PostsCarousel[i].DSUrlPost'">@homeBlog.PostsCarousel[i].DSTituloPost</h4>
+                                                    <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.PostsCarousel[i].DSUrlPost'"></p>
+                                                    <div style="font-size:11px; color:#777">
+                                                        <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.PostsCarousel[i].DSAncoraPost</span>
+                                                        <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.PostsCarousel[i].NRPostViews </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,13 +56,13 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
@@ -76,13 +75,13 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
@@ -94,13 +93,13 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
@@ -112,13 +111,13 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
@@ -130,13 +129,13 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
@@ -148,13 +147,13 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
@@ -166,13 +165,13 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
@@ -184,192 +183,18 @@
             {
                 <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                        <a href="~/Post?id=@homeBlog.Posts[i].IDPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image" style="cursor:pointer" onclick="alert('Image')"></a>
+                        <a href="@homeBlog.Posts[i].DSUrlPost"><img class="card-img-top" src="@homeBlog.Posts[i].Midias[0].DSUrlMidia" alt="Card Image"></a>
                         <div class="card-body">
-                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">@homeBlog.Posts[i].DSTituloPost</h4>
-                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                            <div style="font-size:10px;color:#777">
-                                <span style="margin-right:7px"><i class="fas fa-tag" )"></i> @homeBlog.Posts[i].DSAncoraPost</span>
-                                <span><i class="far fa-eye"></i> @homeBlog.Posts[i].NRPostViews </span>
+                            <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'">@homeBlog.Posts[i].DSTituloPost</h4>
+                            <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@homeBlog.Posts[i].DSUrlPost'"></p>
+                            <div style="font-size:11px; color:#777">
+                                <span style="margin-right:7px"><i class="fas fa-tag" title="Âncora"></i> @homeBlog.Posts[i].DSAncoraPost</span>
+                                <span><i class="far fa-eye" title="Visualizações"></i> @homeBlog.Posts[i].NRPostViews </span>
                             </div>
                         </div>
                     </div>
                 </div>
             }
-        </div>
-        <div class="row mb-1 pb-3">
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-1 pb-3">
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-1 pb-3">
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-5 mb-lg-0 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
-                <div class="card card-border card-border-top card-border-hover bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                    <img class="card-img-top" src="~/img/blog/wide/blog-11.jpg" alt="Card Image" style="cursor:pointer" onclick="alert('Image')">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="alert('title')">Card Title</h4>
-                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="alert('Text')"></p>
-                        <p style="font-size:10px;color:#777">
-                            <span style="margin-right:7px"><i class="far fa-thumbs-up" style="cursor:pointer" onclick="alert('Up')"></i> 12</span>
-                            <span style="margin-right:7px"><i class="far fa-thumbs-down" style="cursor:pointer" onclick="alert('down')"></i> 15 </span>
-                            <span><i class="far fa-eye"></i> 12 </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
