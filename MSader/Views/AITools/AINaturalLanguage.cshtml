@@ -3,79 +3,447 @@
     Layout = "~/Views/Shared/_LayoutDynamic.cshtml";
 }
 
-<div role="main" class="main">
+<div role="main" class="main" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
 
     <div class="container container-xl-custom">
         <div class="row">
-            <div class="col-lg-6 pt-5">
-                <h2 class="font-weight-bold text-10 line-height-2 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="500"><span class="text-5">Natural Language com Azure AI</span></h2>
-                <h4 class="text-6 line-height-6 font-weight-normal appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="800"><span class="opacity-6">Soluções funcionais baseadas em inteligência artificial para o processamento e compreensão de linguagem natural, utilizando os recursos avançados da plataforma Azure.</span></h4>
-                <a class="btn btn-primary btn-with-arrow mb-2 ms-0 ps-0 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="1100" href="#">Contact Me <span><i class="fas fa-chevron-right"></i></span></a>
+            <div class="col-lg-8 pt-5">
+                <h2 class="font-weight-bold text-10 line-height-2 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="500"><span class="text-5">Natural Language</span></h2>
+                <h4 class="text-6 line-height-6 font-weight-normal appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="800"><span class="opacity-6">Soluções funcionais baseadas em inteligência artificial para o processamento e compreensão de linguagem natural.</span></h4>
             </div>
         </div>
     </div>
-
-    <hr class="my-5">
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h4>Funcionalidades</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="tabs">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item active" role="presentation">
-                            <a class="nav-link active" href="#popular" data-bs-toggle="tab" aria-selected="true" role="tab">Transcrição Áudio</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#recent" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">Geração de Conteúdo</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="popular" class="tab-pane active show" role="tabpanel">
-                            <h4>Transcrição Áudio</h4>
-                            <div class="tab-pane tab-pane-navigation active" id="formsStyleDefault" role="tabpanel">
-
+    <div class="container" id="mainContainer">
+        <div class="tabs tabs-bottom tabs-center tabs-simple">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" href="#ContentGenerator" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                        <span class="featured-boxes featured-boxes-style-6 p-0 m-0">
+                            <span class="featured-box featured-box-primary featured-box-effect-6 p-0 m-0">
+                                <span class="box-content p-0 m-0">
+                                    <i class="icon-featured fas fa-file-alt"></i>
+                                </span>
+                            </span>
+                        </span>
+                        <p class="mb-0 pb-0">Gerador Conteúdo</p>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#AudioTranscription" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                        <span class="featured-boxes featured-boxes-style-6 p-0 m-0">
+                            <span class="featured-box featured-box-primary featured-box-effect-6 p-0 m-0">
+                                <span class="box-content p-0 m-0">
+                                    <i class="icon-featured fas fa-file-audio"></i>
+                                </span>
+                            </span>
+                        </span>
+                        <p class="mb-0 pb-0">Transcrição Áudio</p>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#SummarizeText" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
+                        <span class="featured-boxes featured-boxes-style-6 p-0 m-0">
+                            <span class="featured-box featured-box-primary featured-box-effect-6 p-0 m-0">
+                                <span class="box-content p-0 m-0">
+                                    <i class="icon-featured fas fa-list-alt"></i>
+                                </span>
+                            </span>
+                        </span>
+                        <p class="mb-0 pb-0">Reescrever Texto</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active show" id="ContentGenerator" role="tabpanel">
+                    <div class="accordion accordion-sm" id="accordion3">
+                        <div class="card card-default">
+                            <div class="card-header" id="collapse3HeadingOne">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion3" href="#collapse3One" aria-expanded="true">
+                                        <span>Submeter Prompt</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse3One" class="collapse show" aria-labelledby="collapse3HeadingOne" data-bs-parent="#accordion3">
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
-                                                <div class="row">
-                                                    <div class="form-group col">
-                                                        <label class="form-label mb-1 text-2">Prompt</label>
-                                                        <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Selecione um Prompt</label>
+                                                    @Html.DropDownList("Prompts", (SelectList)ViewBag.Prompts, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container" id="divSubmeterPrompt">
+                                        <div class="row mt-10">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="DSTema" class="form-label">Tema Principal</label>
+                                                    <input type="text" class="form-control text-3" id="DSTema" value="Aplicações da Manufatura Aditiva de Metais em Cirurgia Veterinária Ortopédica">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="DSUrlFonte" class="form-label">URL da Fonte</label>
+                                                    <input type="text" class="form-control text-3" id="DSUrlSource" value="https://sci-hub.st/10.1007/s11837-015-1295-x">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="DSComplemento" class="form-label">Observações complementares</label>
+                                                    <textarea rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSComplemento" value="Use linguagem acessível, técnica na medida, adequada para leitores veterinários e entusiastas da ciência animal"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12" style="text-align: right">
+                                                <a class="btn btn-default" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    Exibir Prompt...
+                                                </a>
+                                                <button type="button" onclick="runContentGeneratorOpenAI()" class="btn btn-primary">Submeter Prompt</button>
+                                                <input type="hidden" id="IDPrompt" />
+                                                <input type="hidden" id="IDTipoPrompt" value="2" data-nmtipoprompt="Natural Language" />
+                                            </div>
+                                        </div>
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body text-3 mt-1">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="NMTitulo" class="form-label">Título do Prompt</label>
+                                                                <input type="text" class="form-control text-3" id="NMTitulo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="NMTipoPrompt" class="form-label">Tipo do Prompt</label>
+                                                                <h5 id="NMTipoPrompt">Natural Language</h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <label for="DSContexto" class="form-label">Contexto</label>
+                                                                <textarea data-msg-required="Please enter your message." rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSContexto" required=""></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <label for="DSObjetivo" class="form-label">Objetivo</label>
+                                                                <textarea data-msg-required="Please enter your message." rows="3" class="form-control text-3 h-auto py-2" name="DSObjetivo" id="DSObjetivo" required=""></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Estilo da Resposta</label>
+                                                                @Html.DropDownList("EstiloResposta", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Viés</label>
+                                                                @Html.DropDownList("Vies", (SelectList)ViewBag.Vieses, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="NRMaxTokens" class="form-label">Max Tokens</label>
+                                                                <input type="number" class="form-control" id="NRMaxTokens">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="VRTemperature" class="form-label">Temperature</label>
+                                                                <input type="text" class="form-control" id="VRTemperature">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <label for="DSPrompt" class="form-label">Prompt</label>
+                                                                <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPrompt" id="DSPrompt" required=""></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-2">
+                                                        <div class="col-md-12" style="text-align: right">
+                                                            <button type="button" onclick="savePrompt()" class="btn btn-primary">Salvar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="text-left">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="tabs">
+                                                        <ul class="nav nav-tabs tabs-primary justify-content-center" role="tablist">
+                                                            <li class="nav-item" role="presentation">
+                                                                <a class="nav-link active" href="#RespostaHtml" data-bs-toggle="tab" aria-selected="true" role="tab">HTML</a>
+                                                            </li>
+                                                            <li class="nav-item" role="presentation">
+                                                                <a class="nav-link" href="#RespostaForm" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">FORM</a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div id="RespostaHtml" class="tab-pane active" role="tabpanel">
+                                                                <span>Aqui será exibida resposta no formato HTML...</span>
+                                                            </div>
+                                                            <div id="RespostaForm" class="tab-pane" role="tabpanel">
+                                                                <span id="spanRespostaFormLabel">Aqui será exibida resposta no formato FORM</span>
+                                                                <form>
+                                                                    <div id="spanRespostaFormFields">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Autor</label>
+                                                                                    @Html.DropDownList("Pessoa", (SelectList)ViewBag.Pessoas, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Tipo do Post</label>
+                                                                                    @Html.DropDownList("TipoPost", (SelectList)ViewBag.TiposPost, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Âncora</label>
+                                                                                    <input type="text" class="form-control" id="DSAncoraPost">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Título</label>
+                                                                                    <input type="text" class="form-control" id="DSTituloPost">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">SubTitulo</label>
+                                                                                    <textarea rows="2" class="form-control text-3 h-auto py-2" id="DSSubTituloPost" required=""></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Texto</label>
+                                                                                    <textarea rows="10" class="form-control text-3 h-auto py-2" id="DSTextoPost" required=""></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Tags</label>
+                                                                                    <input type="text" class="form-control" id="DSTags">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row mt-5">
+                                                                            <div class="col-md-12" style="text-align: right">
+                                                                                <button type="button" onclick="savePost()" class="btn btn-primary">Criar Post</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="form-group col-lg-6">
-                                                        <label class="form-label mb-1 text-2">Arquivo de áudio</label>
-                                                        <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="form-group col">
-                                                        <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="card card-default">
+                            <div class="card-header" id="collapse3HeadingTwo">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion3" href="#collapse3Two">
+                                        <span>Criar novo Prompt</span>
+                                        <input type="hidden" id="IDPromptNew" value="0" />
+                                        <input type="hidden" id="IDTipoPromptNew" value="2" data-nmtipoprompt="Natural Language" />
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse3Two" class="collapse" aria-labelledby="collapse3HeadingTwo" data-bs-parent="#accordion3">
+                                <div class="card-body">
+
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="NMTituloNew" class="form-label">Título do Prompt</label>
+                                                    <input type="text" class="form-control" id="NMTituloNew">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="NMTipoPrompt" class="form-label">Tipo do Prompt</label>
+                                                    <h5 id="NMTipoPromptNew">Natural Language</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="DSContextoNew" class="form-label">Contexto</label>
+                                                    <textarea data-msg-required="Please enter your message." rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSContextoNew" required=""></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="DSObjetivoNew" class="form-label">Objetivo</label>
+                                                    <textarea data-msg-required="Please enter your message." rows="3" class="form-control text-3 h-auto py-2" name="DSObjetivo" id="DSObjetivoNew" required=""></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Estilo da Resposta</label>
+                                                    @Html.DropDownList("EstiloRespostaNew", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Viés</label>
+                                                    @Html.DropDownList("ViesNew", (SelectList)ViewBag.Vieses, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="NRMaxTokensNew" class="form-label">Max Tokens</label>
+                                                    <input type="number" class="form-control" id="NRMaxTokensNew">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="VRTemperatureNew" class="form-label">Temperature</label>
+                                                    <input type="text" class="form-control" id="VRTemperatureNew">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="DSPromptNew" class="form-label">Prompt</label>
+                                                    <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPromptNew" id="DSPrompt" required=""></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-5">
+                                            <div class="col-md-12" style="text-align: right">
+                                                <button type="button" onclick="savePromptNew()" class="btn btn-primary">Salvar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="recent" class="tab-pane" role="tabpanel">
-                        <p>Geração de Conteúdo</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+                </div>
+                <div class="tab-pane" id="AudioTranscription" role="tabpanel">
+                    <div class="text-center">
+                        <h4>Transcrição Áudio</h4>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            <label class="form-label mb-1 text-2">Prompt</label>
+                                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label class="form-label mb-1 text-2">Arquivo de áudio</label>
+                                            <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="SummarizeText" role="tabpanel">
+                    <div class="text-center">
+                        <h4>Reescrevet Texto</h4>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            <label class="form-label mb-1 text-2">Prompt</label>
+                                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label class="form-label mb-1 text-2">Arquivo de áudio</label>
+                                            <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <h6>Como funciona</h6>
+        <p>Lead Pellentesque tempor tellus eget pellentesque. usce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesqu.</p>
+        <p>Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus.</p>
+        <p>Mauris tooltip aliquet link ultricies ante, non bold faucibus ante gravida sed. Sed ultrices rendered as italicized text pellentesque purus, vulputate volutpat ipsum hendrerit sed neque..</p>
+        <p>Left pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus.</p>
+    </div>
+    <div class="container text-center" id="LoadingContainer" style="height: 600px">
+        <div class="mb-10" style="margin-top:100px">
+            <span>Aguarde, processando...</span>
+        </div>
+        <img src="~/img/msader_commons/rolling_2.gif" />
     </div>
 </div>
-</div>
 
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="~/vendor/jquery/jquery.slim.min.js"></script>
 
+<script src="~/js/views/aitools-ainaturallanguage.js?=0.0"></script>

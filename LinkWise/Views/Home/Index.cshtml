@@ -1,0 +1,269 @@
+﻿@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    MSader.DTO.HomeBlogDTO homeBlog = (MSader.DTO.HomeBlogDTO)ViewBag.HomeBlog;
+
+    int countPosts = 0;
+
+    if (homeBlog.Posts != null)
+    {
+        countPosts = homeBlog.Posts.Count();
+    }
+}
+<!-- <div class="owl-item position-relative video overlay overlay-color-primary overlay-show overlay-op-8" data-video-path="video/tech" data-plugin-video-background data-plugin-options="{'posterType': 'jpg', 'position': '50% 50%'}" style="height: 100vh;">-->
+<div role="main" class="main">
+    <section class="section video overlay overlay-color-primary overlay-show overlay-op-8 m-0 p-0" data-video-path="@Url.Content("~/video/tech")" data-plugin-video-background data-plugin-options="{'posterType': 'jpg', 'position': '50% 50%'}" style="height: 100vh;">
+        <div class="container container-xl-custom pt-5 h-100">
+            <div class="row align-items-center pt-5 h-100">
+                <div class="col">
+                    <h1 class="word-rotator letters type type-clean-light text-color-light font-weight-extra-bold text-12 line-height-2 mb-3 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="300">
+                        <span>Tecnologia com propósito,&nbsp; </span><br>
+                        <span class="word-rotator-words waiting">
+                            <b class="is-visible">inteligência com experiência. </b>
+                        </span>
+                    </h1>
+                    <p class="text-4-5 text-color-light font-weight-light opacity-9 mb-4" data-plugin-animated-letters data-plugin-options="{'startDelay': 1500, 'minWindowWidth': 0, 'animationSpeed': 50}">Soluções inteligentes para negócios reais, com base na nuvem e no conhecimento.</p>
+                    <a href="#sptep-one" class="btn btn-primary btn-rounded btn-with-arrow-solid mb-2 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="2200" data-appear-animation-duration="1.2s" data-plugin-options="{'minWindowWidth': 0}">
+                        Veja mais ...<span class="pulseAnim pulseAnimAnimated"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <div class="step-point" id="sptep-one"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container container-xl-custom py-5 my-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 text-center">
+                <h2 class="font-weight-bold text-11 appear-animation" data-appear-animation="fadeInUpShorter">Tecnologia, inteligência e visão aplicada ao seu negócio.</h2>
+                <p class="line-height-9 text-4 opacity-9 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">A LinkWise é uma consultoria especializada em soluções de TI com foco em Inteligência Artificial e Cloud Computing na plataforma Microsoft Azure. Une sólida experiência em desenvolvimento de sistemas à vivência no setor veterinário, criando soluções inteligentes e aplicadas.</p>
+            </div>
+        </div>
+        <div class="row featured-boxes featured-boxes-style-4">
+            <div class="col-sm-6 col-lg-3 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="400">
+                <div class="featured-box mb-lg-0">
+                    <div class="box-content px-lg-1 px-xl-5">
+                        <i class="icon-featured icons icon-bubbles text-color-primary text-11"></i>
+                        <h4 class="font-weight-bold text-5 mb-3">Estratégia</h4>
+                        <p>Analisamos cada desafio com profundidade, alinhando tecnologia e objetivos de negócio para traçar soluções sob medida e orientadas por dados.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
+                <div class="featured-box mb-lg-0">
+                    <div class="box-content px-lg-1 px-xl-5">
+                        <i class="icon-featured icons icon-organization text-color-primary text-11"></i>
+                        <h4 class="font-weight-bold text-5 mb-3">Planejamento Total</h4>
+                        <p>Cada projeto nasce de um planejamento cuidadoso, que considera desde a arquitetura de sistemas até a escalabilidade em nuvem e a viabilidade técnica.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
+                <div class="featured-box mb-sm-0">
+                    <div class="box-content px-lg-1 px-xl-5">
+                        <i class="icon-featured icons icon-cup text-color-primary text-11"></i>
+                        <h4 class="font-weight-bold text-5 mb-3">Trabalho Intenso</h4>
+                        <p>Nosso compromisso é com a execução dedicada, com foco nos detalhes e na busca constante por excelência em cada linha de código.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
+                <div class="featured-box mb-0">
+                    <div class="box-content px-lg-1 px-xl-5">
+                        <i class="icon-featured icons icon-rocket text-color-primary text-11"></i>
+                        <h4 class="font-weight-bold text-5 mb-3">Entrega de Qualidade</h4>
+                        <p>Mais que tecnologia bem construída, entregamos soluções alinhadas aos objetivos do negócio, com foco em resultados concretos, monetização e retorno sobre investimento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section section-parallax bg-color-grey border-0 m-0 appear-animation" data-appear-animation="fadeIn" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '116%'}" data-image-src="@Url.Content("~/image/parallax/linkwise-consultoria-azure.jpg")">
+        <div class="container container-xl-custom">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-7 order-2 order-md-1 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
+                    <span class="font-weight-bold text-color-dark opacity-8 text-4">Tecnologia com Propósito</span>
+                    <h2 class="font-weight-bold text-9 mb-4">Soluções digitais pensadas para gerar valor real ao negócio</h2>
+                    <ul class="list list-icons pb-2 mb-4">
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Alinhamento com metas estratégicas e operacionais.</span></li>
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Uso inteligente de dados para tomada de decisão.</span></li>
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Arquitetura moderna baseada em Microsoft Azure.</span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary font-weight-semibold rounded-0 btn-px-5 py-3 text-2">SAIBA MAIS</a>
+                </div>
+                <div class="col-md-4 text-center text-md-start order-1 order-md-2 mb-5 mb-md-0 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
+                    <img src="~/image/linkwise-cloud-computing.jpg" class="img-fluid" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-height-3 section-parallax bg-color-light border-0 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '100%', 'offset': 70}" data-image-src="@Url.Content("~/image/parallax/linkwise-consultoria-azure-devops.jpg")">
+        <div class="container container-xl-custom">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-lg-5 col-xl-6 text-center pe-5 mb-5 mb-md-0 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="400">
+                    <img src="~/image/linkwise-azure-consultoria.jpg" class="img-fluid" alt="" />
+                </div>
+                <div class="col-md-6 col-lg-7 col-xl-6 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
+                    <span class="font-weight-bold text-color-dark opacity-8 text-4">Inovação Aplicada</span>
+                    <h2 class="font-weight-bold text-9 mb-4">IA e automação para transformar processos e resultados</h2>
+                    <ul class="list list-icons pb-2 mb-4">
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Modelos preditivos e insights baseados em dados.</span></li>
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Integrações com sistemas existentes e plataformas web.</span></li>
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Provas de conceito ágeis e evolutivas.</span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary font-weight-semibold rounded-0 btn-px-5 py-3 text-2">SAIBA MAIS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-height-3 section-parallax bg-color-grey border-0 m-0 appear-animation" data-appear-animation="fadeIn" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '100%', 'offset': 70}" data-image-src="@Url.Content("~/image/parallax/linkwise-consultoria-azure.jpg")">
+        <div class="container container-xl-custom">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-7 order-2 order-md-1 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
+                    <span class="font-weight-bold text-color-dark opacity-8 text-4">Consultoria Sob Medida</span>
+                    <h2 class="font-weight-bold text-9 mb-4">Atuação flexível com foco na entrega de valor e escala</h2>
+                    <ul class="list list-icons pb-2 mb-4">
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Projetos personalizados conforme o cenário da empresa.</span></li>
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Suporte desde o planejamento até a implementação.</span></li>
+                        <li><i class="fas fa-caret-right top-6"></i> <span class="text-4">Mentoria em IA, Cloud e DevOps para equipes internas.</span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary font-weight-semibold rounded-0 btn-px-5 py-3 text-2">SAIBA MAIS</a>
+                </div>
+                <div class="col-md-4 text-center text-md-start order-1 order-md-2 mb-5 mb-md-0 me-lg-5 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="400">
+                    <img src="~/image/linkwise-azure-devops-consultoria.jpg" class="img-fluid" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-height-5 section-background overlay overlay-show overlay-op-9 border-0 m-0 appear-animation" data-appear-animation="fadeIn" style="background-image: url(@Url.Content("~/img/bg-corporate-14-1.jpg); background-size: cover; background-position: center;")">
+        <div class="container container-xl-custom my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-xl-9 text-center">
+                    <h2 class="font-weight-bold text-color-light text-11 mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">Entre em contato e descubra como podemos transformar seu projeto</h2>
+                    <p class="font-weight-light text-color-light line-height-9 text-4 opacity-7 mb-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Quer explorar o potencial da Inteligência Artificial, da nuvem ou repensar processos com tecnologia? Fale com a LinkWise e veja como ideias bem aplicadas podem gerar valor real para o seu negócio.</p>
+                    <a href="#" class="d-inline-flex align-items-center btn btn-primary font-weight-semibold px-5 btn-py-3 text-3 rounded appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="550">COMECE AGORA <i class="fa fa-arrow-right ms-2 ps-1 text-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container container-xl-custom py-5 my-5">
+        <div class="row mb-3">
+            <div class="col text-center">
+                <span class="font-weight-bold text-color-dark opacity-8 text-4">NOSSO BLOG</span>
+                <h2 class="font-weight-semibold text-9 mb-3">Insights e tendências em tecnologia, IA e inovação aplicada</h2>
+                <p class="text-4">Acompanhe as últimas publicações do projeto LinkWise com reflexões, novidades e experiências sobre inteligência artificial, computação em nuvem e o uso estratégico da tecnologia nos negócios.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body px-0 py-5">
+                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-color-hover-primary text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/img/team/team-1.jpg" class="img-fluid rounded-circle me-2" width="25" alt="" />
+                            <strong class="text-color-dark text-2">by John Doe</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body px-0 py-5">
+                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-color-hover-primary text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/img/team/team-2.jpg" class="img-fluid rounded-circle me-2" width="25" alt="" />
+                            <strong class="text-color-dark text-2">by Jessica Doe</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body px-0 py-5">
+                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-color-hover-primary text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/img/team/team-3.jpg" class="img-fluid rounded-circle me-2" width="25" alt="" />
+                            <strong class="text-color-dark text-2">by John Doe</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0">
+                    <div class="card-body px-0 py-5">
+                        <h4 class="font-weight-semibold text-5 line-height-3 ls-0 mb-3"><a href="#" class="text-dark text-color-hover-primary text-decoration-none">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta...</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/img/team/team-4.jpg" class="img-fluid rounded-circle me-2" width="25" alt="" />
+                            <strong class="text-color-dark text-2">by Jennifer Doe</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="section bg-color-grey border-0 py-0 m-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Google Maps - Settings on footer -->
+                    <div id="googlemaps" class="google-map h-100 m-0" style="min-height: 400px; position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" alt="" draggable="false" style="user-select: none;"></div><div class="gm-err-title">Ops! Algo deu errado.</div><div class="gm-err-message">Esta página não carregou o Google Maps corretamente. Consulte o console JavaScript para ver detalhes técnicos.</div></div></div></div></div>
+                </div>
+                <div class="col-md-6 p-5 my-5">
+
+                    <div class="px-4">
+                        <h2 class="font-weight-bold line-height-1 mb-2">Contact Us</h2>
+                        <p class="text-3 mb-4">LOREM IPSUM DOLOR SIT A MET</p>
+                        <form class="contact-form form-style-2 pe-xl-5" action="php/contact-form.php" method="POST" novalidate="novalidate">
+                            <div class="contact-form-success alert alert-success d-none mt-4">
+                                <strong>Success!</strong> Your message has been sent to us.
+                            </div>
+
+                            <div class="contact-form-error alert alert-danger d-none mt-4">
+                                <strong>Error!</strong> There was an error sending your message.
+                                <span class="mail-error-message text-1 d-block"></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-xl-4">
+                                    <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" placeholder="Name" required="">
+                                </div>
+                                <div class="form-group col-xl-8">
+                                    <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" placeholder="Email" required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" placeholder="Subject" required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <textarea maxlength="5000" data-msg-required="Please enter your message." rows="4" class="form-control" name="message" placeholder="Message" required=""></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="submit" value="SUBMIT" class="btn btn-primary btn-rounded font-weight-semibold px-5 btn-py-2 text-2" data-loading-text="Loading...">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+

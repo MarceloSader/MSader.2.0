@@ -1,0 +1,49 @@
+﻿@{
+	MSader.DTO.MenuAdminDTO menu = ViewBag.Menu;
+}
+
+
+<ul class="nav nav-pills" id="mainNav">
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle  @menu.HomeActive" href="~/Admin/HomeAdmin">
+			Home
+		</a>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle @menu.AIToolsActive" href="#">
+			AI Tools
+		</a>
+		<ul class="dropdown-menu">
+			<li class="">
+				<a class="dropdown-item" href="~/Admin/AINaturalLanguage">Natural Language</a>
+			</li>
+			<li class="">
+				<a class="dropdown-item" href="~/Labs/CaniveteSuico">Computer Vision</a>
+			</li>
+						<li class="">
+				<a class="dropdown-item" href="~/Labs/CaniveteSuico">Knowledge Minings</a>
+			</li>
+			<li class="">
+				<a class="dropdown-item" href="~/Labs/CaniveteSuico">Document Intelligence</a>
+			</li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle @menu.BlogsActive" href="#">
+			Blogs
+		</a>
+		<ul class="dropdown-menu">
+			<li class="">
+				<a class="dropdown-item" href="~/Admin/Blogs">Blogs</a>
+			</li>
+			<li class="">
+				<a class="dropdown-item" href="#">Posts</a>
+			</li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle" href="#">
+			Prompts
+		</a>
+	</li>
+</ul>

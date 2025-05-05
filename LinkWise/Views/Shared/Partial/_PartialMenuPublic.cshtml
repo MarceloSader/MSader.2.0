@@ -1,0 +1,39 @@
+﻿@{
+	MSader.DTO.MenuPublicDTO menu = ViewBag.Menu;
+}
+
+<ul class="nav nav-pills" id="mainNav">
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle  @menu.HomeActive" href="~/home/index">
+			Home
+		</a>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle @menu.LabsActive" href="#">
+			Labs
+		</a>
+		<ul class="dropdown-menu">
+			<li class="">
+				<a class="dropdown-item" href="~/Labs/AIGrowthEngine">AI Growth Engine</a>
+			</li>
+			<li class="">
+				<a class="dropdown-item" href="~/Labs/CaniveteSuico">Canivete Suíço</a>
+			</li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle" href="~/Blog/Home">
+			Blog
+		</a>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-item dropdown-toggle @menu.LoginActive" href="~/home/login">
+			Login
+		</a>
+	</li>
+	<li class="dropdown">
+		<a class="header-nav-features-toggle" href="https://montink.com/linkwise">
+			Loja
+		</a>
+	</li>
+</ul>

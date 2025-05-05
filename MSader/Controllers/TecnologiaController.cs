@@ -37,11 +37,6 @@ namespace MSader.Controllers
             return Json(new { downloadString });
         }
 
-        public IActionResult VetCoders()
-        {
-            return View("VetCoders");
-        }
-
 
         public async Task<ActionResult> ExtractText()
         {

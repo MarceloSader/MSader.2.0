@@ -1,7 +1,20 @@
 ﻿
 namespace MSader.DTO
 {
-    public class PostDTO : TipoPostDTO
+    public class PostMinDTO : TipoPostDTO
+    {
+        public string? DSTituloPost { get; set; }
+
+        public string? DSAncoraPost { get; set; }
+
+        public string? DSSubTituloPost { get; set; }
+
+        public string? DSTextoPost { get; set; }
+
+        public string? DSTags { get; set; }
+    }
+
+    public class PostDTO : PostMinDTO
     {
         #region Propriedades 
 
@@ -10,20 +23,12 @@ namespace MSader.DTO
         public string? NMPessoa { get; set; }
 
         public int IDPost { get; set; }
-
-        public string? DSAncoraPost { get; set; }
-
-        public string? DSSubTituloPost { get; set; }
-
-        public string? DSTags { get; set; }
-
-        public string? DSTituloPost { get; set; }
-
-        public string? DSTextoPost { get; set; }
-
+        
         public string? DSUrlPost { get; set; }
 
         public bool STPostAtivo { get; set; }
+
+        public int STPostAtivoSql { get; set; }
 
         public DateTime DTCriacaoPost { get; set; }
 
@@ -33,12 +38,45 @@ namespace MSader.DTO
 
         public List<MidiaDTO>? Midias { get; set; }
 
+        public List<PostBlogDTO>? PostsLinked { get; set; }
+
         #endregion
 
         #region Construtores 
 
         public PostDTO()
         { }
+
+        public PostDTO(int idau, int idtp, string dsan, string dstp, string dsst, string dste, string dsta)
+        {
+            IDPessoa = idau;
+            IDTipoPost = idtp;
+            DSAncoraPost = dsan;
+            DSTituloPost = dstp;
+            DSSubTituloPost = dsst;
+            DSTextoPost = dste;
+            DSTags = dsta;
+            STPostAtivo = true;
+            STPostAtivoSql = 1;
+            DTCriacaoPost = DateTime.Now;
+            DTPublicacaoPost = DateTime.Now;
+        }
+
+        public PostDTO(int idpos, int idau, int idtp, string dsan, string dstp, string dsst, string dste, string dsta)
+        {
+            IDPost = idpos;
+            IDPessoa = idau;
+            IDTipoPost = idtp;
+            DSAncoraPost = dsan;
+            DSTituloPost = dstp;
+            DSSubTituloPost = dsst;
+            DSTextoPost = dste;
+            DSTags = dsta;
+            STPostAtivo = true;
+            STPostAtivoSql = 1;
+            DTCriacaoPost = DateTime.Now;
+            DTPublicacaoPost = DateTime.Now;
+        }
 
         #endregion
 
@@ -53,7 +91,7 @@ namespace MSader.DTO
 
         public void SetUrlPost(string urlBase, int idBlog)
         {
-            DSUrlPost = $"{urlBase}/home/post?p={IDPost}&b={idBlog}";
+            DSUrlPost = $"{urlBase}/Blog/Post?p={IDPost}&b={idBlog}";
         }
 
         #endregion
@@ -188,4 +226,48 @@ namespace MSader.DTO
 
         #endregion
     }
+
+    public class PostActionDTO
+    {
+        #region Propriedades 
+
+
+        public int IDPostAction { get; set; }
+        public int IDPostFrom { get; set; }
+        public int? IDPostTo { get; set; }
+        public int? IDProduct { get; set; }
+        public int? IDCampaign { get; set; }
+        public bool STWentToPost { get; set; }
+        public bool STWentToStore { get; set; }
+        public DateTime DTAction { get; set; }
+
+        #endregion
+
+        #region Construtores 
+
+        public PostActionDTO()
+        { }
+
+        public PostActionDTO(int idPost, int? idCampaign = null, int? idProduct = null)
+        {
+            IDPostFrom = idPost;
+            IDPostTo = null;
+            IDCampaign = idCampaign;
+            IDProduct = idProduct;
+            DTAction = DateTime.Now;
+            STWentToPost = false;
+            STWentToStore = false;
+
+            if (idCampaign != null || idProduct != null)
+            {
+                STWentToStore = true;
+            }
+        }
+
+        #endregion
+
+        #region Métodos 
+        #endregion
+    }
+
 }

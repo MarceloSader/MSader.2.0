@@ -19,23 +19,12 @@ namespace MSader.Controllers
             return View("Index");
         }
 
-        public IActionResult Jornada()
-        {
-            ViewBag.Menu = NavigationHelper.BuildMenuHtml("Jornada", "", _httpContextAccessor);
-
-            return View("Jornada");
-        }
 
         public IActionResult Tools()
         {
             ViewBag.Menu = NavigationHelper.BuildMenuHtml("Ferramentas", "", _httpContextAccessor);
 
             return View("Tools");
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
     }

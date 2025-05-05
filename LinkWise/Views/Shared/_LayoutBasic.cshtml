@@ -1,0 +1,149 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Linkwise</title>
+
+    <meta name="keywords" content="Linkwise" />
+    <meta name="description" content="Consultoria em TI">
+    <meta name="author" content="Marcelo Sader">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400&display=swap" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/vendor/animate/animate.compat.css">
+    <link rel="stylesheet" href="~/vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="~/vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/vendor/magnific-popup/magnific-popup.min.css">
+    <!-- Revolution Slider Addon - Typewriter -->
+    <link rel="stylesheet" type="text/css" href="~/vendor/rs-plugin/revolution-addons/typewriter/css/typewriter.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/css/theme.css">
+    <link rel="stylesheet" href="~/css/theme-elements.css">
+    <link rel="stylesheet" href="~/css/theme-blog.css">
+    <link rel="stylesheet" href="~/css/theme-shop.css">
+
+    <!-- Skin CSS -->
+    <link id="skinCSS" rel="stylesheet" href="~/css/skins/skin-corporate-14.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="~/css/custom.css">
+
+</head>
+<body data-plugin-page-transition>
+    <div class="body">
+        <header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 70, 'stickyChangeLogo': false, 'stickyHeaderContainerHeight': 70}">
+            <div class="header-body border-top-0 box-shadow-none">
+                <div class="header-container header-container-md container">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-row">
+                                <div class="header-logo">
+                                    <a href="~/home/index">
+                                        <img alt="LinkWise" width="82" height="40" src="~/image/logo/linkwise-logo.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-column justify-content-end">
+                            <div class="header-row">
+                                <div class="header-nav header-nav-line header-nav-bottom-line header-nav-bottom-line-no-transform header-nav-bottom-line-active-text-dark header-nav-bottom-line-effect-1 order-2 order-lg-1">
+                                    <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                        <nav class="collapse">
+                                            <partial name="Partial/_PartialMenuPublic.cshtml" />
+                                        </nav>
+                                    </div>
+                                    <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+                                        <i class="fas fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        @RenderBody()
+
+        <footer id="footer" class="mt-0">
+            <div class="container container-xl-custom my-4">
+                <div class="row py-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0 text-center text-lg-start pt-3">
+                        <img alt="LinkWise" width="82" height="40" src="~/image/logo/linkwise-logo-white.png" class="mb-5">
+                        <p class="text-4 mb-3">Tecnologia com inteligência, foco em resultados e experiência de quem entende do negócio.</p>
+                    </div>
+                    <div class="col-lg-2 mb-4 mb-md-0 text-center text-lg-start pt-3">
+                        <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Pages</h5>
+                        <ul class="list list-icons list-icons-sm d-inline-flex flex-column">
+                            <li class="text-4 mb-2"><i class="fas fa-angle-right"></i><a href="page-services.html" class="link-hover-style-1 ms-1"> Nosso Projeto</a></li>
+                            <li class="text-4 mb-2"><i class="fas fa-angle-right"></i><a href="about-us.html" class="link-hover-style-1 ms-1"> Sobre Nós</a></li>
+                            <li class="text-4 mb-2"><i class="fas fa-angle-right"></i><a href="contact-us.html" class="link-hover-style-1 ms-1"> Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 mb-4 mb-lg-0 text-center text-lg-start pt-3">
+                        <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Contact Us</h5>
+                        <p class="text-4 mb-2"><span class="text-color-light">Endereço:</span> Multi Open Shopping, Florianópolis/SC</p>
+                        <p class="text-4 mb-2"><span class="text-color-light">Telefone:</span> <a href="tel:+5548991061964">+55 48 9.9106-1964</a></p>
+                        <p class="text-4 mb-2"><span class="text-color-light">Email:</span> <a href="mailto:mail@example.com">mail@example.com</a></p>
+                    </div>
+                    <div class="col-lg-3 text-center text-lg-start pt-3">
+                        <h5 class="text-5 text-transform-none font-weight-semibold text-color-light mb-4">Siga-nos</h5>
+                        <ul class="footer-social-icons social-icons social-icons-clean social-icons-big social-icons-opacity-light social-icons-icon-light mt-0 mt-lg-3">
+                            <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f text-2"></i></a></li>
+                            <li class="social-icons-x"><a href="http://www.x.com/" target="_blank" title="X"><i class="fab fa-x-twitter text-2"></i></a></li>
+                            <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in text-2"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container container-xl-custom">
+                <div class="footer-copyright footer-copyright-style-2">
+                    <div class="py-2">
+                        <div class="row py-4">
+                            <div class="col d-flex align-items-center justify-content-center mb-4 mb-lg-0">
+                                <p>© Copyright 2025. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <a class="style-switcher-open-loader" href="#" data-base-path="" data-skin-src="" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="right" title="Style Switcher" aria-label="Style Switcher"><i class="fas fa-cogs"></i><div class="style-switcher-tooltip"><strong>Style Switcher</strong><p>Check out different color options and styles.</p></div></a>
+
+    <!-- Vendor -->
+    <script src="~/vendor/plugins/js/plugins.min.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="~/js/theme.js"></script>
+
+    <!-- Revolution Slider Addon - Typewriter -->
+    <script type="text/javascript" src="vendor/rs-plugin/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="~/js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="~/js/theme.init.js"></script>
+
+</body>
+</html>
