@@ -1,6 +1,4 @@
-﻿$(document).ready(function () {
-
-    $("#divSubmeterPrompt").hide();
+﻿document.addEventListener('DOMContentLoaded', function () {
 
     InitPageBlogs();
 });

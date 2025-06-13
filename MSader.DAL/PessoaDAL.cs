@@ -6,6 +6,99 @@ namespace MSader.DAL
 {
     public class PessoaDAL : BaseDAL
     {
+
+        public int AddVisitante(VisitanteDTO visitante)
+        {
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
+            {
+                DateTime now = DateTime.Now;
+
+                // Inserção em Pessoa
+                string queryPessoa = @"
+                    INSERT INTO Pessoa
+                    (
+                        NMPessoa,
+                        DSEmail,
+                        STPessoaAtivo,
+                        DTCreatePessoa
+                    )
+                    VALUES
+                    (
+                        @NMPessoa,
+                        @DSEmail,
+                        @STPessoaAtivo,
+                        @DTCreatePessoa
+                    );
+                    SELECT CAST(SCOPE_IDENTITY() AS INT);
+                ";
+
+                var parametrosPessoa = new
+                {
+                    NMPessoa = visitante.NMPessoa,
+                    DSEmail = visitante.DSEmail,
+                    STPessoaAtivo = 1,
+                    DTCreatePessoa = visitante.DTCreatePessoaTwo.DSDateTimeSql
+                };
+
+                visitante.IDPessoa = connectionDB.ExecuteScalar<int>(queryPessoa, parametrosPessoa);
+
+                // Inserção em Visitante
+                string queryVisitante = @"
+                    INSERT INTO Visitante
+                    (
+                        IDPessoa,
+                        CDVisitante,
+                        NRIP,
+                        STVisitanteAtivo,
+                        DTCreateVisitante
+                    )
+                    VALUES
+                    (
+                        @IDPessoa,
+                        @CDVisitante,
+                        @NRIP,
+                        @STVisitanteAtivo,
+                        @DTCreateVisitante
+                    );
+                    SELECT CAST(SCOPE_IDENTITY() AS INT);
+                ";
+
+                var parametrosVisitante = new
+                {
+                    IDPessoa = visitante.IDPessoa,
+                    CDVisitante = visitante.CDVisitante,
+                    NRIP = visitante.NRIP,
+                    STVisitanteAtivo = visitante.STVisitanteAtivoTwo.CDBoolSql,
+                    DTCreateVisitante = visitante.DTCreatePessoaTwo.DSDateTimeSql
+                };
+
+                visitante.IDVisitante = connectionDB.ExecuteScalar<int>(queryVisitante, parametrosVisitante);
+            }
+
+            return visitante.IDVisitante;
+        }
+
+
+        public int GetIDVisitante(string? cdVisitante)
+        {
+            int idVisitante = 0;
+
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
+            {
+                string query = @$"
+                SELECT 
+                     r.IDVisitante
+                    
+                FROM       Visitante r
+                WHERE r.CDVisitante = '{cdVisitante}';
+                ";
+
+                idVisitante = connectionDB.Query<int>(query).FirstOrDefault();
+            }
+
+            return idVisitante;
+        }
+
         public PessoaDTO GetPessoa(int idPessoa)
         {
             PessoaDTO pessoa = new PessoaDTO();

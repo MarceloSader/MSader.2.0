@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
     $("#divSubmeterPrompt").hide();
 
     $("#Prompts").on('change', function () {
@@ -21,13 +21,13 @@
 function getPrompt(idPrompt) {
 
     $.ajax({
-        url: '/AITools/GetPrompt',
+        url: '/Admin/GetPrompt',
         type: 'POST',
         data: {
             idp: idPrompt
         },
         success: function (data) {
-            console.log(data);
+
             fillPrompt(data);
         },
         failure: function (data) {
@@ -42,7 +42,7 @@ function getPrompt(idPrompt) {
 };
 
 function fillPrompt(prompt) {
-    console.log(prompt);
+
     $("#IDPrompt").val(prompt.idPrompt);
     $("#NMTitulo").val(prompt.nmTitulo);
     $("#IDTipoPrompt").val(prompt.idTipoPrompt);
@@ -78,7 +78,7 @@ function clearPrompt(prompt) {
 function savePrompt() {
 
     $.ajax({
-        url: '/AITools/SavePrompt',
+        url: '/Admin/SavePrompt',
         type: 'POST',
         data: {
             idp: $("#IDPrompt").val(),
@@ -109,7 +109,7 @@ function savePrompt() {
 function savePromptNew() {
 
     $.ajax({
-        url: '/AITools/SavePrompt',
+        url: '/Admin/SavePrompt',
         type: 'POST',
         data: {
             idp: $("#IDPromptNew").val(),
@@ -139,11 +139,13 @@ function savePromptNew() {
 
 function runContentGeneratorOpenAI() {
 
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+
     $("#mainContainer").hide();
     $("#LoadingContainer").show();
 
     $.ajax({
-        url: '/AITools/RunContentGeneratorOpenAI',
+        url: '/Admin/RunContentGeneratorOpenAI',
         type: 'POST',
         data: {
             idp: $("#IDPrompt").val(),
@@ -163,19 +165,24 @@ function runContentGeneratorOpenAI() {
             vrt: $("#VRTemperature").val().replace(".", "").replace(",", "."),
         },
         success: function (data) {
-            fillResponse(data.res);
             $("#mainContainer").show();
             $("#LoadingContainer").hide();
+            console.log(data);
+            fillResponse(data.res);
         },
         failure: function (data) {
-            console.log("failure");
             $("#mainContainer").show();
             $("#LoadingContainer").hide();
+
+            console.log("failure");
         },
         error: function (data) {
-            console.log("error");
             $("#mainContainer").show();
             $("#LoadingContainer").hide();
+
+            console.log("error");
+            console.log(data.status);
+
         }
     });
 
@@ -186,21 +193,21 @@ function fillResponse(response) {
 
     var content = "";
 
-    content += "<p style=\"font-size: 12px\">" + response.dsAncoraPost + "</p>";
-    content += "<h2>" + response.dsTituloPost + "</h2>";
-    content += "<p style=\"font-size: 16px\">" + response.dsSubTituloPost + "</p>";
+    content += "<p style=\"font-size: 12px\">" + response.DSAncoraPost + "</p>";
+    content += "<h2>" + response.DSTituloPost + "</h2>";
+    content += "<p style=\"font-size: 16px\">" + response.DSSubTituloPost + "</p>";
     content += "<hr />"
-    content += "<div style=\"font-size: 14px\">" + response.dsTextoPost + "</div>";
+    content += "<div style=\"font-size: 14px\">" + response.DSTextoPost + "</div>";
     content += "<hr />"
-    content += "<div><i class=\"far fa-tags\"></i> " + response.dsTags + "</div>";
+    content += "<div><i class=\"fas fa-tags\"></i> " + response.DSTags + "</div>";
 
     $("#RespostaHtml").html(content);
 
-    $("#DSTAncoraPost").val(response.dsAncoraPost);
-    $("#DSTituloPost").val(response.dsTituloPost);
-    $("#DSSubTituloPost").val(response.dsSubTituloPost);
-    $("#DSTextoPost").val(response.dsTextoPost);
-    $("#DSTags").val(response.dsTags);
+    $("#DSAncoraPost").val(response.DSAncoraPost);
+    $("#DSTituloPost").val(response.DSTituloPost);
+    $("#DSSubTituloPost").val(response.DSSubTituloPost);
+    $("#DSTextoPost").val(response.DSTextoPost);
+    $("#DSTags").val(response.DSTags);
 
     $("#spanRespostaFormLabel").hide();
     $("#spanRespostaFormFields").show();
@@ -208,25 +215,27 @@ function fillResponse(response) {
 
 function savePost() {
 
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
 
     $("#mainContainer").hide();
     $("#LoadingContainer").show();
 
 
     $.ajax({
-        url: '/AITools/SavePost',
+        url: '/Admin/SavePost',
         type: 'POST',
         data: {
             idau: $("#Pessoa").val(),
+            idbl: $("#Blog").val(),
             idtp: $("#TipoPost").val(),
             dsan: $("#DSAncoraPost").val(),
             dstp: $("#DSTituloPost").val(),
             dsst: $("#DSSubTituloPost").val(),
             dste: $("#DSTextoPost").val(),
             dsta: $("#DSTags").val(),
+            star: $("#STAcessoRestrito").val(),
         },
         success: function (data) {
-            fillResponse(data.res);
             $("#mainContainer").show();
             $("#LoadingContainer").hide();
         },

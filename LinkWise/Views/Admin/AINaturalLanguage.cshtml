@@ -81,7 +81,7 @@
                                             <div class="col-md-12">
                                                 <div class="mb-3">
                                                     <label for="DSTema" class="form-label">Tema Principal</label>
-                                                    <input type="text" class="form-control text-3" id="DSTema" value="Aplicações da Manufatura Aditiva de Metais em Cirurgia Veterinária Ortopédica">
+                                                    <input type="text" class="form-control text-3" id="DSTema" value="Uso de aparelhos ortodonticos para cães">
                                                 </div>
                                             </div>
 
@@ -90,7 +90,7 @@
                                             <div class="col-md-12">
                                                 <div class="mb-3">
                                                     <label for="DSUrlFonte" class="form-label">URL da Fonte</label>
-                                                    <input type="text" class="form-control text-3" id="DSUrlSource" value="https://sci-hub.st/10.1007/s11837-015-1295-x">
+                                                    <input type="text" class="form-control text-3" id="DSUrlSource" value="https://www.researchgate.net/publication/279038316_Orthodontic_treatment_of_dogs_on_the_basis_of_modern_knowledge_and_own_experience">
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@
                                             <div class="col-md-12">
                                                 <div class="mb-3">
                                                     <label for="DSComplemento" class="form-label">Observações complementares</label>
-                                                    <textarea rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSComplemento" value="Use linguagem acessível, técnica na medida, adequada para leitores veterinários e entusiastas da ciência animal"></textarea>
+                                                    <textarea rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSComplemento" value="">O uso de aparelhos ortodontico em cães não é novidade. Este artigo foi publicado em 2014 e estabelece alguns pontos importantes desta tecnica e as situações de uso. Quando o assunto é o uso de tecnologias consolidadas para pessoas em animais de companhia surgem posicionamentos polêmicos entre muitas pessoas, questionando se não estamos tratando animais como humanos . Muitos ainda consideram uma mudança de comportamento preocupante, considerando aspectos éticos e psicolólgico. É importante considerar estas questões para além dos aspectos técnicos e benefícios de se usar esta técnica.</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,16 +210,22 @@
                                                                 <form>
                                                                     <div id="spanRespostaFormFields">
                                                                         <div class="row">
-                                                                            <div class="col-md-6">
+                                                                            <div class="col-md-4">
                                                                                 <div class="mb-3">
                                                                                     <label class="form-label">Autor</label>
                                                                                     @Html.DropDownList("Pessoa", (SelectList)ViewBag.Pessoas, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-md-6">
+                                                                            <div class="col-md-4">
                                                                                 <div class="mb-3">
                                                                                     <label class="form-label">Tipo do Post</label>
                                                                                     @Html.DropDownList("TipoPost", (SelectList)ViewBag.TiposPost, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Acesso Restrito</label>
+                                                                                    @Html.DropDownList("AcessoRestrito", (SelectList)ViewBag.SimNao, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -439,11 +445,12 @@
         <div class="mb-10" style="margin-top:100px">
             <span>Aguarde, processando...</span>
         </div>
-        <img src="~/img/msader_commons/rolling_2.gif" />
+        <img src="~/image/commons/rolling_2.gif" />
     </div>
 </div>
 
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="~/vendor/jquery/jquery.slim.min.js"></script>
 
-<script src="~/js/custom/admin-ainaturallanguage.js?=0.0"></script>
+<script src="~/js/custom/admin-AINaturalLanguage.js?=0.3"></script>
+

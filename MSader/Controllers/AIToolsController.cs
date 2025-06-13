@@ -92,19 +92,6 @@ namespace MSader.Controllers
             return Json(new { st = "OK" });
         }
 
-        [HttpPost]
-        public IActionResult SavePost(int idau, int idtp, string dsan, string dstp, string dsst, string dste, string dsta)
-        {
-            PostDTO prompt = new PostDTO(idau, idtp, dsan, dstp, dsst, dste, dsta);
-
-            using (BlogBLL oBLL = new BlogBLL())
-            {
-                oBLL.AddPost(prompt);
-            }
-
-            return Json(new { st = "OK" });
-        }
-
         private string MontarPromptPostGenerator(PromptPostGeneratorDTO prompt)
         {
 

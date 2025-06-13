@@ -1,0 +1,10 @@
+#notificationPostComment {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: none;
+}
+
+    #notificationPostComment.show {
+        display: block;
+        opacity: 1;
+    }

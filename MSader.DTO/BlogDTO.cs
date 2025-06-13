@@ -63,13 +63,11 @@ namespace MSader.DTO
         {
             foreach (var post in Posts ?? Enumerable.Empty<PostBlogDTO>())
             {
-                post.SetMidia(urlBase, nrOrdem);
                 post.SetUrlPost(urlBase, idBlog);
             }
 
             foreach (var post in PostsCarousel ?? Enumerable.Empty<PostBlogDTO>())
             {
-                post.SetMidia(urlBase, nrOrdem);
                 post.SetUrlPost(urlBase, idBlog);
             }
         }

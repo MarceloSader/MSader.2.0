@@ -3,7 +3,7 @@ using Microsoft.SqlServer.Server;
 using MSader.BLL;
 using MSader.DTO;
 
-namespace MSader.Helpers
+namespace LinkWise.Helpers
 {
     public class ListHelper
     {
@@ -99,6 +99,17 @@ namespace MSader.Helpers
             }
         }
 
+        public static SelectList GetListSimNao()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            items.Add(new SelectListItem() { Text = "SIM", Value = "1", Selected = false });
+            items.Add(new SelectListItem() { Text = "Não", Value = "0", Selected = false });
+
+            return new SelectList(items, "Value", "Text");
+
+        }
+
         public static SelectList GetListPessoas()
         {
             List<SelectListItem> items = new List<SelectListItem>();
@@ -116,6 +127,34 @@ namespace MSader.Helpers
                     foreach (PessoaDTO pessoa in pessoas)
                     {
                         items.Add(new SelectListItem() { Text = pessoa.NMPessoa, Value = pessoa.IDPessoa.ToString(), Selected = false });
+                    }
+
+                    return new SelectList(items, "Value", "Text");
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public static SelectList GetListBlogs()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            items.Add(new SelectListItem() { Text = ":: SELECIONE ::", Value = "0", Selected = false });
+
+            List<BlogDTO> blogs = [];
+
+            using (BlogBLL oBLL = new BlogBLL())
+            {
+                blogs = oBLL.GetBlogs();
+
+                try
+                {
+                    foreach (BlogDTO blog in blogs)
+                    {
+                        items.Add(new SelectListItem() { Text = blog.NMBlog, Value = blog.IDBlog.ToString(), Selected = false });
                     }
 
                     return new SelectList(items, "Value", "Text");
@@ -181,6 +220,18 @@ namespace MSader.Helpers
                     throw;
                 }
             }
+        }
+
+        public static SelectList GetListTipoMidia()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            items.Add(new SelectListItem() { Text = "Foto", Value = "1", Selected = true });
+            items.Add(new SelectListItem() { Text = "Vídeo", Value = "2", Selected = false });
+            items.Add(new SelectListItem() { Text = "Áudio", Value = "3", Selected = false });
+
+            return new SelectList(items, "Value", "Text");
+
         }
     }
 }

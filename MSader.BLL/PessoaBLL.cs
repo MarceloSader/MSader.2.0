@@ -5,6 +5,7 @@ namespace MSader.BLL
 {
     public class PessoaBLL : BaseBLL
     {
+
         public PessoaDTO GetPessoa(int idPessoa)
         {
             PessoaDTO pessoa = new PessoaDTO();

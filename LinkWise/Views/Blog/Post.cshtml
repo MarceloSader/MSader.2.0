@@ -4,8 +4,9 @@
 
     MSader.DTO.PostDTO post = (MSader.DTO.PostDTO)ViewBag.Post;
 }
+<link href="~/css/custom.css" rel="stylesheet" />
 
-<div class="body">
+<div class="body" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
 
     <div role="main" class="main">
         <section class="page-header page-header-modern page-header-background page-header-background-md py-0 overlay overlay-color-primary overlay-show overlay-op-8" style="background-image: url('@Url.Content("~/image/headers/page-header/page-header-background-01.png")');">
@@ -37,7 +38,7 @@
 
                         </div>
                         <div class="appear-animation d-inline-block animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
-                            <a href="http://montink.com/msader" target="_blank" class="btn btn-modern btn-dark mt-4">Buy Now <i class="fas fa-arrow-right ms-1"></i></a>
+                            <a href="http://montink.com/msader" target="_blank" class="btn btn-modern btn-dark mt-4">COMPRE AGORA <i class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                         <div class="appear-animation d-inline-block animated rotateInUpRight appear-animation-visible" data-appear-animation="rotateInUpRight" data-appear-animation-delay="500" style="animation-delay: 500ms;">
                             <span class="arrow hlt" style="top: 40px;"></span>
@@ -55,27 +56,6 @@
         <div class="container py-4">
 
             <div class="row">
-                <div class="col-lg-3 order-lg-2">
-                    <aside class="sidebar">
-
-                        <h5 class="font-weight-semi-bold pt-4">Sobre o Projeto</h5>
-                        <p>VetStories é um blog que compartilha histórias e curiosidades do mundo veterinário. Aqui você encontra relatos reais, dicas de cuidados com pets e experiências marcantes da rotina clínica, tudo pensado para quem ama e cuida dos animais. </p>
-                        @if (post.PostsLinked != null)
-                        {
-                            <h5 class="font-weight-semi-bold pt-4">Posts Relacionados</h5>
-                            foreach (var postLinked in post.PostsLinked)
-                            {
-                                <div class="card card-border card-border-top card-border-hover mb-2 bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
-                                    <a href="@postLinked.DSUrlPost"><img class="card-img-top" src="@postLinked.Midias[0].DSUrlMidia" alt="Card Image"></a>
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@postLinked.DSUrlPost'">@postLinked.DSTituloPost</h4>
-                                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@postLinked.DSUrlPost'"></p>
-                                    </div>
-                                </div>
-                            }
-                        }
-                    </aside>
-                </div>
                 <div class="col-lg-9 order-lg-1">
                     <div class="blog-posts single-post">
 
@@ -113,8 +93,181 @@
                         </article>
                     </div>
                 </div>
+                <div class="col-lg-3 order-lg-2">
+                    <aside class="sidebar">
+                        <div class="bg-primary p-3">
+                            <h5 class="font-weight-semi-bold pt-4" style="color:#ffffff">Transparência editorial</h5>
+                            <p class="text-color-light">Este blog combina inteligência artificial com autoria humana. Os textos são iniciados com apoio da IA, mas sempre passam por revisão e complementação do autor, que assume total responsabilidade pelo conteúdo final.</p>
+                            <p class="text-color-light">Os comentários assinados por Luna e Carlos são gerados por IA e representam visões ideológicas opostas, com o objetivo de enriquecer o debate. Todos os comentários dos leitores são moderados.</p>
+
+                        </div>
+
+
+                        @if (post.PostsLinked != null)
+                        {
+                            <h5 class="font-weight-semi-bold pt-4">Posts Relacionados</h5>
+                            foreach (var postLinked in post.PostsLinked)
+                            {
+                                <div class="card card-border card-border-top card-border-hover mb-2 bg-color-light box-shadow-6 box-shadow-hover anim-hover-translate-top-10px transition-3ms">
+                                    <a href="@postLinked.DSUrlPost"><img class="card-img-top" src="@postLinked.Midias[0].DSUrlMidia" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-1 text-4 font-weight-bold" style="cursor:pointer" onclick="window.location = '@postLinked.DSUrlPost'">@postLinked.DSTituloPost</h4>
+                                        <p class="card-text mb-2 pb-1" style="cursor:pointer" onclick="window.location = '@postLinked.DSUrlPost'"></p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <div class="container py-4">
+            <div class="post-block mt-5 post-share">
+                <h4 class="mb-3">Compartilhe</h4>
+
+                <!-- Go to www.addtoany.com to customize -->
+                <!-- AddToAny BEGIN -->
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style" style="line-height: 32px;">
+                    <a class="a2a_dd" href="https://www.addtoany.com/share#url=file%3A%2F%2F%2FC%3A%2FUsers%2FMarcelo%2FOneDrive%2FDeveloper%2FTemplates%2FSites%2FPorto%2FPorto-MSader%2FHTML%2Fblog-post.html&amp;title=Post%20Full%20Width%20%7C%20Porto%20-%20Multipurpose%20Website%20Template"><span class="a2a_svg a2a_s__default a2a_s_a2a" style="background-color: rgb(1, 102, 255);"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill="#FFF"><path d="M14 7h4v18h-4z"></path><path d="M7 14h18v4H7z"></path></g></svg></span><span class="a2a_label a2a_localize" data-a2a-localize="inner,Share">Compartilhar</span></a>
+                    <a class="a2a_button_facebook" target="_blank" rel="nofollow noopener" href="/#facebook"><span class="a2a_svg a2a_s__default a2a_s_facebook" style="background-color: rgb(8, 102, 255);"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#fff" d="M28 16c0-6.627-5.373-12-12-12S4 9.373 4 16c0 5.628 3.875 10.35 9.101 11.647v-7.98h-2.474V16H13.1v-1.58c0-4.085 1.849-5.978 5.859-5.978.76 0 2.072.15 2.608.298v3.325c-.283-.03-.775-.045-1.386-.045-1.967 0-2.728.745-2.728 2.683V16h3.92l-.673 3.667h-3.247v8.245C23.395 27.195 28 22.135 28 16"></path></svg></span><span class="a2a_label">Facebook</span></a>
+                    <a class="a2a_button_x" target="_blank" rel="nofollow noopener" href="/#x"><span class="a2a_svg a2a_s__default a2a_s_x" style="background-color: rgb(26, 26, 26);"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#fff" d="M21.751 7h3.067l-6.7 7.658L26 25.078h-6.172l-4.833-6.32-5.531 6.32h-3.07l7.167-8.19L6 7h6.328l4.37 5.777L21.75 7Zm-1.076 16.242h1.7L11.404 8.74H9.58l11.094 14.503Z"></path></svg></span><span class="a2a_label">X</span></a>
+                    <a class="a2a_button_copy_link" target="_blank" rel="nofollow noopener" href="/#copy_link"><span class="a2a_svg a2a_s__default a2a_s_link" style="background-color: rgb(136, 137, 144);"><svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#fff" d="M7.591 21.177q0-.54.377-.917l2.804-2.804a1.24 1.24 0 0 1 .913-.378q.565 0 .97.43-.038.041-.255.25-.215.21-.29.29a3 3 0 0 0-.2.256 1.1 1.1 0 0 0-.177.344 1.4 1.4 0 0 0-.046.37q0 .54.377.918a1.25 1.25 0 0 0 .918.377q.19.001.373-.047.189-.056.345-.175.135-.09.256-.2.15-.14.29-.29c.14-.142.223-.23.25-.254q.445.42.445.984 0 .539-.377.916l-2.778 2.79a1.24 1.24 0 0 1-.917.364q-.54-.001-.917-.35l-1.982-1.97a1.22 1.22 0 0 1-.378-.9zm9.477-9.504q0-.54.377-.917l2.777-2.79a1.24 1.24 0 0 1 .913-.378q.525-.001.917.364l1.984 1.968q.38.378.38.903 0 .54-.38.917l-2.802 2.804a1.24 1.24 0 0 1-.916.364q-.565 0-.97-.418.038-.04.255-.25a8 8 0 0 0 .29-.29q.108-.12.2-.255.121-.156.176-.344.048-.181.047-.37 0-.538-.377-.914a1.25 1.25 0 0 0-.917-.377q-.205 0-.37.046-.172.046-.346.175a4 4 0 0 0-.256.2q-.08.076-.29.29l-.25.258q-.441-.417-.442-.983zM5.003 21.177q0 1.617 1.146 2.736l1.982 1.968c.745.75 1.658 1.12 2.736 1.12q1.63 0 2.75-1.143l2.777-2.79c.75-.747 1.12-1.66 1.12-2.737q.002-1.66-1.183-2.818l1.186-1.185q1.16 1.185 2.805 1.186 1.617 0 2.75-1.13l2.803-2.81q1.127-1.132 1.128-2.748 0-1.62-1.146-2.738L23.875 6.12Q22.758 4.999 21.139 5q-1.63 0-2.75 1.146l-2.777 2.79c-.75.747-1.12 1.66-1.12 2.737q-.002 1.658 1.183 2.817l-1.186 1.186q-1.16-1.186-2.805-1.186-1.617 0-2.75 1.132L6.13 18.426Q5 19.559 5 21.176z"></path></svg></span><span class="a2a_label">Copy Link</span></a>
+                    <div style="clear: both;"></div>
+                </div>
+                <script async="" src="https://static.addtoany.com/menu/page.js"></script>
+                <!-- AddToAny END -->
+
+            </div>
+            <div class="post-block mt-4 pt-2 post-author">
+                <h4 class="mb-3">Comentários gerados por IA</h4>
+                <p>Os comentários a seguir são feitos por dois personagens virtuais criados com inteligência artificial. Cada um representa uma visão política distinta, para fomentar o debate e enriquecer a discussão. Após eles, você também pode deixar sua opinião.</p>
+                <hr />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
+                            <a href="#">
+                                <img class="avatar" alt="" src="~/image/avatars/lunamartins.png">
+                            </a>
+                        </div>
+                        <p><strong class="name"><a href="#" class="text-4 pb-2 pt-2 d-block">Luna Martins</a></strong></p>
+                        <p>Luna é uma comentarista virtual com viés progressista. Movida por inteligência artificial, ela analisa os conteúdos do blog a partir de valores como justiça social, diversidade, direitos humanos, feminismo e defesa do meio ambiente. Sua visão crítica representa ideias de esquerda e busca provocar reflexões sobre estruturas de poder e inclusão. </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
+                            <a href="#">
+                                <img class="avatar" alt="" src="~/image/avatars/CarlosVidal.png">
+                            </a>
+                        </div>
+                        <p><strong class="name"><a href="#" class="text-4 pb-2 pt-2 d-block">Carlos Vidal</a></strong></p>
+                        <p>Carlos é um comentarista virtual com perfil conservador. Também movido por inteligência artificial, ele oferece uma visão alinhada à direita, com foco em valores como fé cristã, família tradicional, liberdade individual, mérito e responsabilidade. Seus comentários refletem princípios morais e econômicos típicos do pensamento conservador. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-block mt-5 post-leave-comment" id="divComentarTop">
+                <h4 class="mb-3">Deixe seu comentário</h4>
+                <p>Participe, interaja com os personagens, questione, argumente e explore reflexões sobre os temas abordados nos posts da Linkwise.</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn btn-primary btn-modern" data-loading-text="Loading..." onclick=" openPpostComment(0)"><i class="fas fa-comment-dots"></i> &nbsp; Comentar</div>
+                    </div>
+                </div>
+            </div>
+            <div id="comments" class="post-block mt-5 post-comments">
+                <h4 class="mb-3">Comentários (<span id="NRPostComments"></span>)</h4>
+
+                <ul class="comments" id="divPostComments"></ul>
+
+                <div class="row" id="divPostCommentsLoading">
+                    <div class="col-lg-12" style="text-align:center">
+                        <img src="~/image/commons/rolling_2.gif" />
+                        <p>Carregando ...</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="post-block mt-5 post-leave-comment" id="divComentarBottom">
+                <h4 class="mb-3">Deixe seu comentário</h4>
+                <p>Participe, interaja com os personagens, questione, argumente e explore reflexões sobre os temas abordados nos posts da Linkwise.</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn btn-primary btn-modern" data-loading-text="Loading..." onclick=" openPpostComment(0)"><i class="fas fa-comment-dots"></i> &nbsp; Comentar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="IDPost" value="@post.IDPost" />
+        <input type="hidden" id="IDPostComment" value="0" />
+        <input type="hidden" id="IDBlog" value="@post.IDBlog" />
+    </div>
+
+    <div class="modal fade show" id="modalPostComment" tabindex="-1" aria-labelledby="largeModalLabel" style="padding-right: 15px;" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-color-grey">
+                <div class="modal-header">
+                    <h4 class="modal-title">Deixe seu comentário</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="contact-form p-4 rounded bg-color-grey" action="">
+                        <div class="p-2">
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label class="form-label required font-weight-bold text-dark">Nome</label>
+                                    <input type="text" value="" id="NMPessoa" data-msg-required="Por favor, identifique-se" maxlength="100" class="form-control" name="name" required="">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label class="form-label font-weight-bold text-dark">Email</label>
+                                    <input type="email" value="" id="DSEmail" data-msg-required="" data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" required="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col">
+                                    <label class="form-label required font-weight-bold text-dark">Comentário</label>
+                                    <textarea id="DSComment" maxlength="5000" data-msg-required="Por favor, digite sua mensagem" rows="8" class="form-control" name="message" required=""></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div value="" class="btn btn-default btn-modern" onclick="closePostComment()">Cancelar</div>
+                                </div>
+                                <div class="col-lg-7" style="text-align:right">
+                                    <div id="captchaNetVet" data-idbtnform="btnFormSubmit" value="Enviar" class="btn btn-default btn-modern pull-right" style="height: 80px">
+                                        <img class="img-fluid rounded-circle mr-1" id="processing_0" width="50" src="~/image/commons/processing_0.gif">
+                                        <img class="img-fluid rounded-circle mr-1" id="processing_1" width="50" src="~/image/commons/processing_1.gif">
+                                        <img class="img-fluid rounded-circle mr-1" id="processing_2" width="50" src="~/image/commons/processing_2.gif">
+                                        <span class="ml-2">Não sou um robô</span>
+                                    </div>
+                                    <p><small class="" id="captchaMsg">Clique para liberar o formulário</small></p>
+                                    <input type="hidden" id="tknCaptcha" value="" />
+                                </div>
+                                <div class="col-lg-2" style="text-align:right">
+                                    <div value="" class="btn btn-primary btn-modern" data-loading-text="Loading..." id="btnFormSubmit" onclick="addPostComment()">Enviar</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 mb-2">
+          
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="fcol-lg-12">
+                                    <div class="alert alert-warning alert-dismissible" role="alert" id="notificationPostComment">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <strong>Warning!</strong> <span id="messageNotificationPostComment"></span>.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="~/vendor/jquery/jquery.slim.min.js"></script>
 
+<script src="~/js/custom/blog-Post.js?=0.4"></script>
+<script src="~/js/custom/commons-Captcha.js?=0.0"></script>
