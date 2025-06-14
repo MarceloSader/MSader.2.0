@@ -24,6 +24,8 @@ namespace MSader.DTO
 
         public DateTimeDTO? DTCreatePessoaTwo { get; set; }
 
+        public PerfilDTO? Perfil { get; set; }
+
         #endregion
 
         #region Construtores 
@@ -34,6 +36,18 @@ namespace MSader.DTO
         #endregion
 
         #region Métodos 
+
+        public string GetRole()
+        {
+            string role = ConstDTO.Perfis.Admin.Nome;
+
+            if(Perfil != null && Perfil.NMPerfil != null)
+            {
+                role = Perfil.NMPerfil;
+            }
+
+            return role;
+        }
         #endregion
     }
 
@@ -86,5 +100,12 @@ namespace MSader.DTO
 
         #region Métodos 
         #endregion
+    }
+
+    public class PerfilDTO
+    {
+        public int IDPerfil { get; set; }
+
+        public string? NMPerfil { get; set; }
     }
 }

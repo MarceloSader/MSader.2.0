@@ -1,43 +1,55 @@
+ï»¿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MSader.BLL;
 using MSader.DTO;
 
 namespace LinkWise.Controllers
 {
-    public class HomeController : Controller
+
+    [Authorize(Roles = "Convidado")]
+    public class ReservaCognitivaController : Controller
     {
+
+        #region Propriedades
+
+        string msgRetorno = string.Empty;
+        string strStatus = "ERRO";
+
+        #endregion
 
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public HomeController(IHttpContextAccessor httpContextAccessor)
+        public ReservaCognitivaController(IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public IActionResult Index()
+        [Authorize(Roles = "Convidado")]
+        /// <summary>
+        /// Blog Pessoal, para posts com acesso restrito
+        /// </summary>
+        [Authorize]
+        public IActionResult Home()
         {
-            HomeBlogDTO homeBlog = new HomeBlogDTO();
 
-            string urlBase = this.GetUrlBase(_httpContextAccessor);
+            ViewBag.Menu = new MenuPublicDTO("Blog");
 
             using (BlogBLL oBLL = new BlogBLL())
             {
-                homeBlog = oBLL.GetHomeBlog(urlBase, 1);
+                ViewBag.HomeBlog = oBLL.GetHomeBlog(this.GetUrlBase(_httpContextAccessor), ConstDTO.Blogs.ReservaCognitiva.ID);
             }
 
-            ViewBag.HomeBlog = homeBlog;
-            ViewBag.Menu = new MenuPublicDTO("Home");
-
-            return View("Index");
+            return View("Home");
         }
 
+        [Authorize(Roles = "Convidado")]
         /// <summary>
         /// Abre um registro de post
         /// </summary>
         /// <param name="p">IDPost - ID do post.</param>
         /// <param name="b">IDBlog - ID do blog.</param>
         /// <param name="f">FromPost - ID do post que estava aberto no momento que cliclou para ler este post.</param>
-        /// <returns></returns>
+        [Authorize]
         public IActionResult Post(int p, int b, int? f = null)
         {
             PostDTO post = new PostDTO();
@@ -48,7 +60,7 @@ namespace LinkWise.Controllers
 
             using (BlogBLL oBLL = new BlogBLL())
             {
-                post = oBLL.GetPost(urlBase, p, b, 0);
+                post = oBLL.GetPost(urlBase, p, b, 1);
 
                 if (_httpContextAccessor.HttpContext != null)
                 {
@@ -58,25 +70,14 @@ namespace LinkWise.Controllers
                 oBLL.AddPostView(p, nrIP);
             }
 
+            ViewBag.Menu = new MenuPublicDTO("Blog");
+
             ViewBag.Post = post;
 
             return View("Post");
         }
 
-        /// <summary>
-        /// Registra a ação de ir para a loja a partir de um post 
-        /// </summary>
-        public IActionResult FromPostToStore(int idPost, int? idCampaign = null, int? idProduct = null)
-        {
-            PostActionDTO postAction = new PostActionDTO(idPost, idCampaign, idProduct);
-
-            using (BlogBLL oBLL = new BlogBLL())
-            {
-                oBLL.AddPostAction(postAction);
-            }
-
-            return Ok();
-        }
+        #region Tools
 
         private string GetUrlBase(IHttpContextAccessor httpContextAccessor)
         {
@@ -90,5 +91,7 @@ namespace LinkWise.Controllers
 
             return urlBase;
         }
+
+        #endregion
     }
 }

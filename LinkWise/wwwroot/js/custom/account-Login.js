@@ -20,26 +20,30 @@ function submitLogon() {
 
     let local_dse = document.getElementById('DSEmail').value;
     let local_cdc = document.getElementById('CDChave').value;
+    let local_ReturnUrl = document.getElementById('ReturnUrl').value;
 
     $.ajax({
         url: '/Account/Logon',
         type: 'POST',
         data: {
             dse: local_dse,
-            cdc: local_cdc
-            //dse: $("#DSEmail").val(),
-            //cdc: $("#CDChave").val()
+            cdc: local_cdc,
+            url: local_ReturnUrl
         },
         success: function (data) {
-            console.log(data);
             getOrCreateLocalCredentials(local_dse, local_cdc);
-            window.location = "/Admin/HomeAdmin";
+            console.log(data);
+            if (data.url == null || data.url == "") {
+                window.location = "/Admin/HomeAdmin";
+            }
+            else {
+                window.location = data.url;
+            }
         },
         failure: function (data) {
             console.log("failure");
         },
         error: function (data) {
-            console.log(data);
             if (data.status === 401) {
                 alert("Usuário ou senha inválidos.");
             } else {
@@ -68,6 +72,3 @@ function getOrCreateLocalCredentials(dsEmail, cdChave) {
         console.log('Usuário já identificado');
     }
 }
-
-
-

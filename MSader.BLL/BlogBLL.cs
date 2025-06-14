@@ -178,13 +178,13 @@ namespace MSader.BLL
             }
         }
 
-        public List<PostDTO> GetPosts(string urlBase, int nrPosts)
+        public List<PostDTO> GetPosts(string urlBase, int nrPosts, int idBlog)
         {
             List<PostDTO> posts = new List<PostDTO>();
 
             using (BlogDAL oDAL = new BlogDAL())
             {
-                posts = oDAL.GetPosts(nrPosts);
+                posts = oDAL.GetPosts(nrPosts, idBlog);
 
                 if (posts != null && posts.Count > 0)
                 {

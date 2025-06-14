@@ -144,7 +144,14 @@ namespace MSader.DTO
 
         public void SetUrlPost(string urlBase, int idBlog)
         {
-            DSUrlPost = $"{urlBase}/Blog/Post?p={IDPost}&b={idBlog}";
+            string controllerName = ConstDTO.Blogs.Linkwise.ControllerName;
+
+            if(idBlog == ConstDTO.Blogs.ReservaCognitiva.ID)
+            {
+                string blog = ConstDTO.Blogs.ReservaCognitiva.ControllerName;
+            }
+
+            DSUrlPost = $"{urlBase}/{controllerName}/Post?p={IDPost}&b={idBlog}";
         }
 
         public void SetNewPost()

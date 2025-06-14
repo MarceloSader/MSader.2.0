@@ -125,9 +125,11 @@ namespace MSader.DAL
         {
             PessoaDTO? pessoa = new PessoaDTO();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            try
             {
-                string query = @$"
+                using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
+                {
+                    string queryPessoa = @$"
                 SELECT 
                      r.IDPessoa
                     ,r.NMPessoa
@@ -137,7 +139,27 @@ namespace MSader.DAL
                 WHERE r.DSEmail = '{dsEmail}' AND  r.CDChave = '{cdChave}';
                 ";
 
-                pessoa = connectionDB.Query<PessoaDTO>(query).FirstOrDefault();
+                    pessoa = connectionDB.Query<PessoaDTO>(queryPessoa).FirstOrDefault();
+
+                    string queryPerfil = @$"
+                SELECT 
+                     r.IDPerfil
+                    ,a.NMPerfil
+                    
+                FROM       PessoaPerfil r
+                INNER JOIN Perfil       a ON r.IDPerfil = a.IDPerfil
+                WHERE r.IDPessoa = {pessoa.IDPessoa};
+                ";
+
+                    if (pessoa != null)
+                    {
+                        pessoa.Perfil = connectionDB.Query<PerfilDTO>(queryPerfil).FirstOrDefault();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
 
             return pessoa;

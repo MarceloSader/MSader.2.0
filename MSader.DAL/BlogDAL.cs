@@ -352,7 +352,7 @@ namespace MSader.DAL
 
             List<PostBlogDTO> posts = [];
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
 
                 string query = @$"
@@ -473,11 +473,11 @@ namespace MSader.DAL
             }
         }
 
-        public List<PostDTO> GetPosts(int nrPosts)
+        public List<PostDTO> GetPosts(int nrPosts, int idBlog)
         {
             List<PostDTO> posts = new List<PostDTO>();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT top {nrPosts}
@@ -490,7 +490,9 @@ namespace MSader.DAL
                     , r.DTPublicacaoPost
                     , r.STPostAtivo
                     , r.STAcessoRestrito
-                FROM       Post r
+                FROM       Post     r
+                INNER JOIN PostBlog a ON r.IDPost = a.IDPost
+                WHERE a.IDBlog = {idBlog}
                  ORDER BY r.DTCriacaoPost DESC
                 ";
 

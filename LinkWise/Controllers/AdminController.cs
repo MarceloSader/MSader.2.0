@@ -1,21 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.IO;
 using MSader.DTO;
 using MSader.BLL;
 using LinkWise.Helpers;
 using System.Text.Json;
 using System.Text;
-using Microsoft.Extensions.Hosting;
-using System.Runtime.Intrinsics.Arm;
-using Microsoft.IdentityModel.Logging;
 using System.Diagnostics;
-using Microsoft.Identity.Client;
-using Microsoft.EntityFrameworkCore;
 
 namespace LinkWise.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
 
@@ -80,23 +74,25 @@ namespace LinkWise.Controllers
         }
 
         [HttpGet]
-        public IActionResult Posts()
+        public IActionResult Posts(int idb)
         {
             ViewBag.Menu = new MenuAdminDTO("Blogs");
 
             ViewBag.TiposMidia = ListHelper.GetListTipoMidia();
 
+            ViewBag.IDBlog = idb;
+
             return View("Posts");
         }
 
         [HttpGet]
-        public IActionResult GetPosts()
+        public IActionResult GetPosts(int idb)
         {
             List<PostDTO> posts = new List<PostDTO>();
 
             using (BlogBLL oBLL = new BlogBLL())
             {
-                posts = oBLL.GetPosts(this.GetUrlBase(_httpContextAccessor), ConstantsDTO.NR_POSTS);
+                posts = oBLL.GetPosts(this.GetUrlBase(_httpContextAccessor), ConstantsDTO.NR_POSTS, idb);
             }
 
             return Ok(new { Posts = posts });

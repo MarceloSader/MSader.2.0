@@ -20,8 +20,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.LoginPath = "/Account/Login"; // Página de login
-        options.AccessDeniedPath = "/Account/AcessoNegado"; // Se quiser tratar 403
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+        options.AccessDeniedPath = "/Account/Login"; // Se quiser tratar 403
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(600);
     });
 builder.Services.AddAuthorization();
 

@@ -30,14 +30,16 @@ namespace MSader.DTO
     {
         public static class Blogs
         {
-            public static class LinkwiseBlog
+            public static class Linkwise
             {
                 public static int ID = 1;
+                public static string ControllerName = "Blog";
             }
 
             public static class ReservaCognitiva
             {
                 public static int ID = 2;
+                public static string ControllerName = "ReservaCognitiva";
             }
         }
 
@@ -96,6 +98,27 @@ namespace MSader.DTO
         public static DateTime GetSQLDateTimeMinValue()
         {
             return (DateTime)SqlDateTime.MinValue;
+        }
+
+        public static class Perfis
+        {
+            public static class Admin
+            {
+                public static int ID = 1;
+                public static string Nome = "Admin";
+            }
+
+            public static class Convidado
+            {
+                public static int ID = 2;
+                public static string Nome = "Convidado";
+            }
+
+            public static class AtorIA
+            {
+                public static int ID = 3;
+                public static string Nome = "AtorIA";
+            }
         }
     }
 

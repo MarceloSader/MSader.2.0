@@ -4,17 +4,19 @@
 });
 
 function InitPagePosts() {
-    console.log("InitPagePosts");
 
-    getPosts();
+    getPosts(document.getElementById('IDBlog').value);
 
 }
 
-function getPosts() {
+function getPosts(idBlog) {
 
     $.ajax({
         url: '/Admin/GetPosts',
         type: 'GET',
+        data: {
+            idb: idBlog
+        },
         success: function (data) {
             console.log(data);
             fillPosts(data.posts);
