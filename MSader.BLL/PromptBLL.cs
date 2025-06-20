@@ -13,6 +13,8 @@ namespace MSader.BLL
 {
     public class PromptBLL : BaseBLL
     {
+        // DIRETRIZES
+
         public List<FormatoSaidaDTO> GetFormatosSaida()
         {
             List<FormatoSaidaDTO> formatos = new List<FormatoSaidaDTO>();
@@ -23,6 +25,18 @@ namespace MSader.BLL
             }
 
             return formatos;
+        }
+
+        public FormatoSaidaDTO GetFormatoSaida(int idFormatoSaida)
+        {
+            FormatoSaidaDTO formato = new FormatoSaidaDTO();
+
+            using (PromptDAL oDAL = new PromptDAL())
+            {
+                formato = oDAL.GetFormatoSaida(idFormatoSaida);
+            }
+
+            return formato;
         }
 
         public List<EstiloRespostaDTO> GetEstilosResposta()
@@ -37,17 +51,43 @@ namespace MSader.BLL
             return estilos;
         }
 
-        public List<ViesDTO> GetVieses()
+        public EstiloRespostaDTO GetEstiloResposta(int idEstiloResposta)
+        {
+            EstiloRespostaDTO estilo = new EstiloRespostaDTO();
+
+            using (PromptDAL oDAL = new PromptDAL())
+            {
+                estilo = oDAL.GetEstiloResposta(idEstiloResposta);
+            }
+
+            return estilo;
+        }
+
+        public List<ViesDTO> GetVieses(int idViesCategoria)
         {
             List<ViesDTO> vieses = new List<ViesDTO>();
 
             using (PromptDAL oDAL = new PromptDAL())
             {
-                vieses = oDAL.GetVieses();
+                vieses = oDAL.GetVieses(idViesCategoria);
             }
 
             return vieses;
         }
+
+        public ViesDTO GetVies(int idVies)
+        {
+            ViesDTO vies = new ViesDTO();
+
+            using (PromptDAL oDAL = new PromptDAL())
+            {
+                vies = oDAL.GetVies(idVies);
+            }
+
+            return vies;
+        }
+
+        // PROMPT
 
         public PromptPostGeneratorDTO GetPromptRequest(int idPrompt)
         {

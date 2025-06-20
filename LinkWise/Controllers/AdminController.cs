@@ -40,13 +40,19 @@ namespace LinkWise.Controllers
 
             ViewBag.EstilosResposta = ListHelper.GetListEstilosResposta();
 
+            ViewBag.FormatosSaida = ListHelper.GetListFormatosSaida();
+
             ViewBag.TiposPost = ListHelper.GetListTipoPost();
 
             ViewBag.SimNao = ListHelper.GetListSimNao();
 
             ViewBag.Pessoas = ListHelper.GetListPessoas();
 
-            ViewBag.Vieses = ListHelper.GetListVieses();
+            ViewBag.ViesesPolitico = ListHelper.GetListVieses(ConstDTO.Vies.Politico.ID);
+            ViewBag.ViesesEconomico = ListHelper.GetListVieses(ConstDTO.Vies.Economico.ID);
+            ViewBag.ViesesCultural_Social = ListHelper.GetListVieses(ConstDTO.Vies.Cultural_Social.ID);
+            ViewBag.ViesesFilosofico_Etico = ListHelper.GetListVieses(ConstDTO.Vies.Filosofico_Etico.ID);
+            ViewBag.ViesesCientifico_Tecnologico = ListHelper.GetListVieses(ConstDTO.Vies.Cientifico_Tecnologico.ID);
 
             ViewBag.Prompts = ListHelper.GetListPrompts(ConstDTO.TipoPrompt.NaturalLanguage.ID);
 
@@ -165,6 +171,52 @@ namespace LinkWise.Controllers
 
 
             return View("Post");
+        }
+
+        // DIRETRIZES
+
+        [HttpGet]
+        public IActionResult GetEstiloResposta(int ier)
+        {
+
+            EstiloRespostaDTO estilo = new EstiloRespostaDTO();
+
+            using (PromptBLL oBLL = new PromptBLL())
+            {
+                estilo = oBLL.GetEstiloResposta(ier);
+            }
+
+            return Json(estilo);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetFormatoSaida(int ifs)
+        {
+
+            FormatoSaidaDTO formato = new FormatoSaidaDTO();
+
+            using (PromptBLL oBLL = new PromptBLL())
+            {
+                formato = oBLL.GetFormatoSaida(ifs);
+            }
+
+            return Json(formato);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetVies(int idv)
+        {
+
+            ViesDTO vies = new ViesDTO();
+
+            using (PromptBLL oBLL = new PromptBLL())
+            {
+                vies = oBLL.GetVies(idv);
+            }
+
+            return Json(vies);
         }
 
         // CONTENT GENERATOR

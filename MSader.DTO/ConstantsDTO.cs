@@ -91,6 +91,35 @@ namespace MSader.DTO
             }
         }
 
+        public static class Vies
+        {
+            public static class Politico
+            {
+                public static int ID = 1;
+            }
+
+            public static class Economico
+            {
+                public static int ID = 2;
+            }
+
+            public static class Cultural_Social
+            {
+                public static int ID = 3;
+            }
+
+            public static class Filosofico_Etico
+            {
+                public static int ID = 4;
+            }
+
+            public static class Cientifico_Tecnologico
+            {
+                public static int ID = 5;
+            }
+
+        }
+
         /// <summary>
         /// Obtém a data e hora mínima do banco de dados SL Server. 1 de janeiro de 1753, 01/01/1753
         /// </summary>

@@ -199,4 +199,13 @@ namespace MSader.DTO
 
         #endregion
     }
+
+    public class ScrapingDTO
+    {
+        #region Properties
+
+        public string? DSTextScraped { get; set; }
+
+        #endregion
+    }
 }

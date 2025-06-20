@@ -16,7 +16,96 @@
     $("#spanRespostaFormLabel").show();
     //$("#spanRespostaFormFields").hide();
 
+    document.getElementById('IDEstiloResposta').addEventListener('change', function () {
+        const valorSelecionado = this.value;
+        console.log("Valor selecionado Estilo Resposta:", valorSelecionado);
+
+        // 🔥 Chama sua função passando o valor
+        getEstiloResposta(valorSelecionado);
+    });
+
+    document.getElementById('IDFormatoSaida').addEventListener('change', function () {
+        const valorSelecionado = this.value;
+        console.log("Valor selecionado Formato Saída:", valorSelecionado);
+
+        // 🔥 Chama sua função passando o valor
+        getFormatoSaida(valorSelecionado);
+    });
+
+    document.getElementById('IDViesPolitico').addEventListener('change', function () {
+        const valorSelecionado = this.value;
+        console.log("Valor selecionado Vies:", valorSelecionado);
+
+        // 🔥 Chama sua função passando o valor
+        getVies(valorSelecionado, "Politico");
+    });
+
+    document.getElementById('IDViesEconomico').addEventListener('change', function () {
+        const valorSelecionado = this.value;
+        console.log("Valor selecionado Vies:", valorSelecionado);
+
+        // 🔥 Chama sua função passando o valor
+        getVies(valorSelecionado, "Economico");
+    });
+
+    document.getElementById('IDViesCultural_Social').addEventListener('change', function () {
+        const valorSelecionado = this.value;
+        console.log("Valor selecionado Vies:", valorSelecionado);
+
+        // 🔥 Chama sua função passando o valor
+        getVies(valorSelecionado, "Cultural_Social");
+    });
+
+    document.getElementById('IDViesFilosofico_Etico').addEventListener('change', function () {
+        const valorSelecionado = this.value;
+        console.log("Valor selecionado Vies:", valorSelecionado);
+
+        // 🔥 Chama sua função passando o valor
+        getVies(valorSelecionado, "Filosofico_Etico");
+    });
+
+    document.getElementById('IDViesCientifico_Tecnologico').addEventListener('change', function () {
+        const valorSelecionado = this.value;
+        console.log("Valor selecionado Vies:", valorSelecionado);
+
+        // 🔥 Chama sua função passando o valor
+        getVies(valorSelecionado, "Cientifico_Tecnologico");
+    });
+
+    getPromptResumo();
+
 });
+
+// SCRAPING
+
+function runScraping() {
+
+    startLoading();
+
+    $.ajax({
+        url: '/Content/RunScraping',
+        type: 'POST',
+        data: {
+            url: document.getElementById('DSUrlForScraping').value
+        },
+        success: function (data) {
+
+            fillScraped(data);
+
+            stopLoading();
+        },
+        failure: function (data) {
+            console.log("failure");
+            stopLoading();
+        },
+        error: function (data) {
+            console.log("error");
+            stopLoading();
+        }
+    });
+
+    return false;
+};
 
 function getPrompt(idPrompt) {
 
@@ -41,6 +130,46 @@ function getPrompt(idPrompt) {
     return false;
 };
 
+function getPromptResumo(idPrompt) {
+
+    $.ajax({
+        url: '/Admin/GetPrompt',
+        type: 'POST',
+        data: {
+            idp: 9
+        },
+        success: function (data) {
+
+            fillPromptResumo(data);
+        },
+        failure: function (data) {
+            console.log("failure");
+        },
+        error: function (data) {
+            console.log("error");
+        }
+    });
+
+    return false;
+};
+
+function fillScraped(scraping) {
+
+    document.getElementById('DSTextScraped').value = scraping.scraping.dsTextScraped;
+
+    const formattedHtml = scraping.scraping.dsTextScraped.replace(/\n/g, '<br>');
+
+    document.getElementById('DSTextScrapedHtml').innerHTML = formattedHtml;
+
+    let promptResumo = document.getElementById('DSPromptResumo').value;
+
+    promptResumo = promptResumo.replace("[TEXTO_DA_FONTE_ORIGINAL]", formattedHtml);
+
+    console.log(promptResumo);
+
+    document.getElementById('DSPromptResumo').value = promptResumo;
+}
+
 function fillPrompt(prompt) {
 
     $("#IDPrompt").val(prompt.idPrompt);
@@ -56,6 +185,14 @@ function fillPrompt(prompt) {
     $("#DSPrompt").val(prompt.dsPrompt);
     $("#NRMaxTokens").val(prompt.nrMaxTokens);
     $("#VRTemperature").val(prompt.vrTemperature.toString().replace(",", "").replace(".", ","));
+}
+
+function fillPromptResumo(prompt) {
+
+    console.log(prompt);
+
+    $("#DSPromptResumo").val(prompt.dsPrompt);
+
 }
 
 function clearPrompt(prompt) {
@@ -253,5 +390,91 @@ function savePost() {
 
     return false;
 };
+
+// DIRETRIZES
+
+function getEstiloResposta(idEstiloResposta) {
+
+    $.ajax({
+        url: '/Admin/GetEstiloResposta',
+        type: 'GET',
+        data: {
+            ier: idEstiloResposta
+        },
+        success: function (data) {
+            console.log(data);
+            document.getElementById('DSDiretriz_EstiloResposta').innerHTML = data.dsDiretriz;
+        },
+        failure: function (data) {
+            console.log("failure");
+        },
+        error: function (data) {
+            console.log("error");
+        }
+    });
+
+    return false;
+};
+
+function getFormatoSaida(idFormatoSaida) {
+
+    $.ajax({
+        url: '/Admin/GetFormatoSaida',
+        type: 'GET',
+        data: {
+            ifs: idFormatoSaida
+        },
+        success: function (data) {
+            console.log(data);
+            document.getElementById('DSDiretriz_FormatoSaida').innerHTML = data.dsDiretriz;
+        },
+        failure: function (data) {
+            console.log("failure");
+        },
+        error: function (data) {
+            console.log("error");
+        }
+    });
+
+    return false;
+};
+
+function getVies(idVies, categoria) {
+
+    $.ajax({
+        url: '/Admin/GetVies',
+        type: 'GET',
+        data: {
+            idv: idVies
+        },
+        success: function (data) {
+            console.log(data);
+            document.getElementById('DSDiretriz_Vies_' + categoria).innerHTML = data.dsVies;
+        },
+        failure: function (data) {
+            console.log("failure");
+        },
+        error: function (data) {
+            console.log("error");
+        }
+    });
+
+    return false;
+};
+
+
+// HELPERS
+
+function startLoading() {
+    $("#mainContainer").hide();
+    $("#LoadingContainer").show();
+}
+
+function stopLoading() {
+    $("#mainContainer").show();
+    $("#LoadingContainer").hide();
+};
+
+;
 
 

@@ -6,11 +6,13 @@ namespace MSader.DAL
 {
     public class PromptDAL : BaseDAL
     {
+        // DIRETRIZES
+
         public List<FormatoSaidaDTO> GetFormatosSaida()
         {
             List<FormatoSaidaDTO> formatos = new List<FormatoSaidaDTO>();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 
@@ -28,11 +30,35 @@ namespace MSader.DAL
             return formatos;
         }
 
+        public FormatoSaidaDTO GetFormatoSaida(int idFormatoSaida)
+        {
+            FormatoSaidaDTO formato = new FormatoSaidaDTO();
+
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
+            {
+                string query = @$"
+                SELECT 
+                     r.IDFormatoSaida
+                    ,r.NMFormatoSaida
+                    ,r.DSDiretriz
+                    ,r.STFormatoSaidaActive
+
+                FROM       PR_FormatoSaida r
+                WHERE r.IDFormatoSaida = {idFormatoSaida}
+                ORDER BY r.NMFormatoSaida
+                ";
+
+                formato = connectionDB.Query<FormatoSaidaDTO>(query).FirstOrDefault();
+            }
+
+            return formato;
+        }
+
         public List<EstiloRespostaDTO> GetEstilosResposta()
         {
             List<EstiloRespostaDTO> estilos = new List<EstiloRespostaDTO>();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 
@@ -50,11 +76,84 @@ namespace MSader.DAL
             return estilos;
         }
 
+        public EstiloRespostaDTO GetEstiloResposta(int idEstiloResposta)
+        {
+            EstiloRespostaDTO estilo = new EstiloRespostaDTO();
+
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
+            {
+                string query = @$"
+                SELECT 
+                     r.IDEstiloResposta
+                    ,r.NMEstiloResposta
+                    ,r.DSDiretriz
+                    ,r.STEstiloRespostaActive
+
+                FROM       PR_EstiloResposta r
+                WHERE    r.IDEstiloResposta = {idEstiloResposta}
+                ORDER BY r.NMEstiloResposta
+                ";
+
+                estilo = connectionDB.Query<EstiloRespostaDTO>(query).FirstOrDefault();
+            }
+
+            return estilo;
+        }
+
+        public List<ViesDTO> GetVieses(int idViesCategoria)
+        {
+            List<ViesDTO> vieses = new List<ViesDTO>();
+
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
+            {
+                string query = @$"
+                SELECT 
+                     r.IDVies
+                    ,r.NMVies
+
+                FROM       PR_Vies r
+                WHERE STViesActive = 1 AND IDViesCategoria = {idViesCategoria}
+                ORDER BY r.NMVies
+                ";
+
+                vieses = connectionDB.Query<ViesDTO>(query).ToList();
+            }
+
+            return vieses;
+        }
+
+        public ViesDTO GetVies(int idVies)
+        {
+            ViesDTO vies = new ViesDTO();
+
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
+            {
+                string query = @$"
+                SELECT 
+                     r.IDVies
+                    ,r.NMVies
+                    ,r.DSVies
+                    ,r.DSDiretriz
+
+                FROM       PR_Vies r
+                WHERE IDVies = {idVies}
+                ORDER BY r.NMVies
+                ";
+
+                vies = connectionDB.Query<ViesDTO>(query).FirstOrDefault();
+            }
+
+            return vies;
+        }
+
+
+        // PROMPT
+
         public List<PromptPostGeneratorDTO> GetPromptsRequest(int idTipoPrompt)
         {
             List<PromptPostGeneratorDTO> prompts = new List<PromptPostGeneratorDTO>();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 
@@ -75,7 +174,7 @@ namespace MSader.DAL
         {
             PromptPostGeneratorDTO post = new PromptPostGeneratorDTO();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 
@@ -84,20 +183,11 @@ namespace MSader.DAL
                     ,a.NMTipoPrompt
                     ,r.NMTitulo
                     ,r.DSObjetivo
-                    ,r.DSContexto
-                    ,r.IDEstiloResposta
-                    ,c.NMEstiloResposta
-                    ,r.IDVies
-                    ,d.NMVies
                     ,r.DSPrompt
-                    ,r.NRMaxTokens
-                    ,r.VRTemperature
                     ,r.STPromptActive
 
                 FROM       PR_Prompt r
                 INNER JOIN PR_TipoPrompt     a ON r.IDTipoPrompt = a.IDTipoPrompt 
-                INNER JOIN PR_EstiloResposta c ON r.IDEstiloResposta = c.IDEstiloResposta 
-                INNER JOIN PR_Vies           d ON r.IDVies = d.IDVies 
                 WHERE r.IDPrompt = {idPrompt}
                 ";
 
@@ -109,7 +199,7 @@ namespace MSader.DAL
 
         public void AddPromptRequest(PromptPostGeneratorDTO prompt)
         {
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                     INSERT INTO PR_Prompt
@@ -146,7 +236,7 @@ namespace MSader.DAL
 
         public void UpdPromptRequest(PromptPostGeneratorDTO prompt)
         {
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                     UPDATE PR_Prompt SET
@@ -167,26 +257,6 @@ namespace MSader.DAL
             }
         }
 
-        public List<ViesDTO> GetVieses()
-        {
-            List<ViesDTO> vieses = new List<ViesDTO>();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            {
-                string query = @$"
-                SELECT 
-                     r.IDVies
-                    ,r.NMVies
-                    ,r.STViesActive
-
-                FROM       PR_Vies r
-                ORDER BY r.NMVies
-                ";
-
-                vieses = connectionDB.Query<ViesDTO>(query).ToList();
-            }
-
-            return vieses;
-        }
     }
 }

@@ -147,6 +147,11 @@ namespace MSader.DTO
         /// Nome do Formato de saída da resposta esperadano banco de dados.
         /// </summary>
         public string? NMFormatoSaida { get; set; }
+
+        /// <summary>
+        /// Diretriz a ser adicionada ao prompt
+        /// </summary>
+        public string? DSDiretriz { get; set; }
     }
 
     /// <summary>
@@ -165,6 +170,11 @@ namespace MSader.DTO
         /// </summary>
         public string? NMEstiloResposta { get; set; }
 
+        /// <summary>
+        /// Diretriz a ser adicionada ao prompt
+        /// </summary>
+        public string? DSDiretriz { get; set; }
+
         public EstiloRespostaDTO()
         {
 
@@ -178,6 +188,16 @@ namespace MSader.DTO
         public int IDVies { get; set; }
 
         public string? NMVies { get; set; }
+
+        /// <summary>
+        /// Descrição do Vies
+        /// </summary>
+        public string? DSVies { get; set; }
+
+        /// <summary>
+        /// Diretriz a ser adicionada ao prompt
+        /// </summary>
+        public string? DSDiretriz { get; set; }
 
         public bool STViesActive { get; set; }
 

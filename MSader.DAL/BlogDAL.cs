@@ -16,7 +16,7 @@ namespace MSader.DAL
 
         public void AddPostView(int idPost, string nrIP)
         {
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 var PostViewDTO = new PostViewDTO() { };
 
@@ -30,7 +30,7 @@ namespace MSader.DAL
 
         public void AddPostAction(PostActionDTO postAction)
         {
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string sqlCommand = @$"INSERT PostAction (IDPostFrom, IDPostTo, IDProduct, IDCampaign, STWentToStore, STWentToPost, DTAction) VALUES(@IDPostFrom, @IDPostTo, @IDProduct, @IDCampaign, @STWentToStore, @STWentToPost, @DTAction)";
 
@@ -44,7 +44,7 @@ namespace MSader.DAL
         {
             int idPost = 0;
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                     INSERT INTO Post
@@ -86,7 +86,7 @@ namespace MSader.DAL
 
         public void AddPostBlog(PostBlogDTO postBlog, int idPost)
         {
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                     INSERT INTO PostBlog
@@ -171,7 +171,7 @@ namespace MSader.DAL
         public void AddMidiaPost(MidiaDTO midia, int idPost)
         {
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string queryMidia = @$"
                     INSERT INTO Midia
@@ -272,7 +272,7 @@ namespace MSader.DAL
         {
             List<BlogDTO> posts = new List<BlogDTO>();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 
@@ -534,7 +534,7 @@ namespace MSader.DAL
         {
             PostDTO post = new PostDTO();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string queryGetPost = @$"
                 SELECT 
@@ -601,7 +601,7 @@ namespace MSader.DAL
         {
             List<PostBlogDTO> posts = [];
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
 
                 string query = @$"
@@ -652,7 +652,7 @@ namespace MSader.DAL
         {
             List<TipoPostDTO> tipos = [];
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 
@@ -673,7 +673,7 @@ namespace MSader.DAL
         {
             TipoPostDTO tipoPost = new TipoPostDTO();
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 
@@ -694,7 +694,7 @@ namespace MSader.DAL
         {
             List<PessoaDTO> pessoas = [];
 
-            using (var connectionDB = new SqlConnection("Server=tcp:sql-msader-prd-01.database.windows.net,1433;Initial Catalog=sqldb-msader-prd-01;Persist Security Info=False;User ID=msader-operator;Password=CeHAd?ad8U;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (var connectionDB = new SqlConnection(ConstantsDTO.CONN_STRING))
             {
                 string query = @$"
                 SELECT 

@@ -166,7 +166,7 @@ namespace LinkWise.Helpers
             }
         }
 
-        public static SelectList GetListVieses()
+        public static SelectList GetListVieses(int idViesCategoria)
         {
             List<SelectListItem> items = new List<SelectListItem>();
 
@@ -176,7 +176,7 @@ namespace LinkWise.Helpers
 
             using (PromptBLL oBLL = new PromptBLL())
             {
-                vieses = oBLL.GetVieses();
+                vieses = oBLL.GetVieses(idViesCategoria);
 
                 try
                 {

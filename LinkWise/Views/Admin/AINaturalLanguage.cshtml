@@ -14,432 +14,603 @@
         </div>
     </div>
     <div class="container" id="mainContainer">
-        <div class="tabs tabs-bottom tabs-center tabs-simple">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" href="#ContentGenerator" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
-                        <span class="featured-boxes featured-boxes-style-6 p-0 m-0">
-                            <span class="featured-box featured-box-primary featured-box-effect-6 p-0 m-0">
-                                <span class="box-content p-0 m-0">
-                                    <i class="icon-featured fas fa-file-alt"></i>
-                                </span>
-                            </span>
-                        </span>
-                        <p class="mb-0 pb-0">Gerador Conteúdo</p>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="#AudioTranscription" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
-                        <span class="featured-boxes featured-boxes-style-6 p-0 m-0">
-                            <span class="featured-box featured-box-primary featured-box-effect-6 p-0 m-0">
-                                <span class="box-content p-0 m-0">
-                                    <i class="icon-featured fas fa-file-audio"></i>
-                                </span>
-                            </span>
-                        </span>
-                        <p class="mb-0 pb-0">Transcrição Áudio</p>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="#SummarizeText" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">
-                        <span class="featured-boxes featured-boxes-style-6 p-0 m-0">
-                            <span class="featured-box featured-box-primary featured-box-effect-6 p-0 m-0">
-                                <span class="box-content p-0 m-0">
-                                    <i class="icon-featured fas fa-list-alt"></i>
-                                </span>
-                            </span>
-                        </span>
-                        <p class="mb-0 pb-0">Reescrever Texto</p>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active show" id="ContentGenerator" role="tabpanel">
-                    <div class="accordion accordion-sm" id="accordion3">
-                        <div class="card card-default">
-                            <div class="card-header" id="collapse3HeadingOne">
-                                <h4 class="card-title m-0">
-                                    <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion3" href="#collapse3One" aria-expanded="true">
-                                        <span>Submeter Prompt</span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse3One" class="collapse show" aria-labelledby="collapse3HeadingOne" data-bs-parent="#accordion3">
-                                <div class="card-body">
-                                    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <div class="tabs">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="#Scraper" data-bs-toggle="tab" aria-selected="true" role="tab">Scraper</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#GerarResumo" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Gerar Resumo</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#GerarPost" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Gerar Post</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#ComentarPosts" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Comentar Posts</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#TranscricaoAudio" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Transcrição Áudio</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#ReescrevendoTexto" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Reescrever Texto</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#GerarResumo_obsoleto" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Gerar Resumo Obsoleto</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Scraper" class="tab-pane active" role="tabpanel">
+                            <h4>Extração de Conteúdo (Scraper)</h4>
+                            <p>Informe a URL da página para que o sistema capture apenas o texto principal, eliminando menus, propagandas, rodapés e outros elementos irrelevantes. O objetivo é obter o conteúdo limpo, pronto para as etapas seguintes.</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Selecione um Prompt</label>
-                                                    @Html.DropDownList("Prompts", (SelectList)ViewBag.Prompts, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
-                                                </div>
+                                            <div class="form-group col-md-10">
+                                                <label class="form-label">URL</label>
+                                                <input type="text" class="form-control" id="DSUrlForScraping" placeholder="Username">
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="form-label"></label><br />
+                                                <button type="button" onclick="runScraping()" class="btn btn-primary mt-2">Scrape</button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="container" id="divSubmeterPrompt">
-                                        <div class="row mt-10">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label for="DSTema" class="form-label">Tema Principal</label>
-                                                    <input type="text" class="form-control text-3" id="DSTema" value="Uso de aparelhos ortodonticos para cães">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group col">
+                                                    <label class="form-label mb-1 text-2">Resultado em Texto</label>
+                                                    <textarea data-msg-required="" rows="20" class="form-control text-3 h-auto py-2" id="DSTextScraped" name="DSTextScraped" required=""></textarea>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
 
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label for="DSUrlFonte" class="form-label">URL da Fonte</label>
-                                                    <input type="text" class="form-control text-3" id="DSUrlSource" value="https://www.researchgate.net/publication/279038316_Orthodontic_treatment_of_dogs_on_the_basis_of_modern_knowledge_and_own_experience">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label for="DSComplemento" class="form-label">Observações complementares</label>
-                                                    <textarea rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSComplemento" value="">O uso de aparelhos ortodontico em cães não é novidade. Este artigo foi publicado em 2014 e estabelece alguns pontos importantes desta tecnica e as situações de uso. Quando o assunto é o uso de tecnologias consolidadas para pessoas em animais de companhia surgem posicionamentos polêmicos entre muitas pessoas, questionando se não estamos tratando animais como humanos . Muitos ainda consideram uma mudança de comportamento preocupante, considerando aspectos éticos e psicolólgico. É importante considerar estas questões para além dos aspectos técnicos e benefícios de se usar esta técnica.</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-12" style="text-align: right">
-                                                <a class="btn btn-default" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                    Exibir Prompt...
-                                                </a>
-                                                <button type="button" onclick="runContentGeneratorOpenAI()" class="btn btn-primary">Submeter Prompt</button>
-                                                <input type="hidden" id="IDPrompt" />
-                                                <input type="hidden" id="IDTipoPrompt" value="2" data-nmtipoprompt="Natural Language" />
-                                            </div>
-                                        </div>
-                                        <div class="collapse" id="collapseExample">
-                                            <div class="card card-body text-3 mt-1">
-                                                <form>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="NMTitulo" class="form-label">Título do Prompt</label>
-                                                                <input type="text" class="form-control text-3" id="NMTitulo">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="NMTipoPrompt" class="form-label">Tipo do Prompt</label>
-                                                                <h5 id="NMTipoPrompt">Natural Language</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="mb-3">
-                                                                <label for="DSContexto" class="form-label">Contexto</label>
-                                                                <textarea data-msg-required="Please enter your message." rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSContexto" required=""></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="mb-3">
-                                                                <label for="DSObjetivo" class="form-label">Objetivo</label>
-                                                                <textarea data-msg-required="Please enter your message." rows="3" class="form-control text-3 h-auto py-2" name="DSObjetivo" id="DSObjetivo" required=""></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Estilo da Resposta</label>
-                                                                @Html.DropDownList("EstiloResposta", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Viés</label>
-                                                                @Html.DropDownList("Vies", (SelectList)ViewBag.Vieses, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="NRMaxTokens" class="form-label">Max Tokens</label>
-                                                                <input type="number" class="form-control" id="NRMaxTokens">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="VRTemperature" class="form-label">Temperature</label>
-                                                                <input type="text" class="form-control" id="VRTemperature">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="mb-3">
-                                                                <label for="DSPrompt" class="form-label">Prompt</label>
-                                                                <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPrompt" id="DSPrompt" required=""></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-2">
-                                                        <div class="col-md-12" style="text-align: right">
-                                                            <button type="button" onclick="savePrompt()" class="btn btn-primary">Salvar</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="text-left">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="tabs">
-                                                        <ul class="nav nav-tabs tabs-primary justify-content-center" role="tablist">
-                                                            <li class="nav-item" role="presentation">
-                                                                <a class="nav-link active" href="#RespostaHtml" data-bs-toggle="tab" aria-selected="true" role="tab">HTML</a>
-                                                            </li>
-                                                            <li class="nav-item" role="presentation">
-                                                                <a class="nav-link" href="#RespostaForm" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">FORM</a>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="tab-content">
-                                                            <div id="RespostaHtml" class="tab-pane active" role="tabpanel">
-                                                                <span>Aqui será exibida resposta no formato HTML...</span>
-                                                            </div>
-                                                            <div id="RespostaForm" class="tab-pane" role="tabpanel">
-                                                                <span id="spanRespostaFormLabel">Aqui será exibida resposta no formato FORM</span>
-                                                                <form>
-                                                                    <div id="spanRespostaFormFields">
-                                                                        <div class="row">
-                                                                            <div class="col-md-4">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Autor</label>
-                                                                                    @Html.DropDownList("Pessoa", (SelectList)ViewBag.Pessoas, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Tipo do Post</label>
-                                                                                    @Html.DropDownList("TipoPost", (SelectList)ViewBag.TiposPost, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Acesso Restrito</label>
-                                                                                    @Html.DropDownList("AcessoRestrito", (SelectList)ViewBag.SimNao, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Âncora</label>
-                                                                                    <input type="text" class="form-control" id="DSAncoraPost">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Título</label>
-                                                                                    <input type="text" class="form-control" id="DSTituloPost">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">SubTitulo</label>
-                                                                                    <textarea rows="2" class="form-control text-3 h-auto py-2" id="DSSubTituloPost" required=""></textarea>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Texto</label>
-                                                                                    <textarea rows="10" class="form-control text-3 h-auto py-2" id="DSTextoPost" required=""></textarea>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Tags</label>
-                                                                                    <input type="text" class="form-control" id="DSTags">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row mt-5">
-                                                                            <div class="col-md-12" style="text-align: right">
-                                                                                <button type="button" onclick="savePost()" class="btn btn-primary">Criar Post</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
+                                                <div class="form-group col">
+                                                    <label class="form-label mb-1 text-2">Visão HTML do resultado</label>
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <div id="DSTextScrapedHtml"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-default">
-                            <div class="card-header" id="collapse3HeadingTwo">
-                                <h4 class="card-title m-0">
-                                    <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion3" href="#collapse3Two">
-                                        <span>Criar novo Prompt</span>
-                                        <input type="hidden" id="IDPromptNew" value="0" />
-                                        <input type="hidden" id="IDTipoPromptNew" value="2" data-nmtipoprompt="Natural Language" />
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse3Two" class="collapse" aria-labelledby="collapse3HeadingTwo" data-bs-parent="#accordion3">
-                                <div class="card-body">
-
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="NMTituloNew" class="form-label">Título do Prompt</label>
-                                                    <input type="text" class="form-control" id="NMTituloNew">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="NMTipoPrompt" class="form-label">Tipo do Prompt</label>
-                                                    <h5 id="NMTipoPromptNew">Natural Language</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label for="DSContextoNew" class="form-label">Contexto</label>
-                                                    <textarea data-msg-required="Please enter your message." rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSContextoNew" required=""></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label for="DSObjetivoNew" class="form-label">Objetivo</label>
-                                                    <textarea data-msg-required="Please enter your message." rows="3" class="form-control text-3 h-auto py-2" name="DSObjetivo" id="DSObjetivoNew" required=""></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Estilo da Resposta</label>
-                                                    @Html.DropDownList("EstiloRespostaNew", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Viés</label>
-                                                    @Html.DropDownList("ViesNew", (SelectList)ViewBag.Vieses, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="NRMaxTokensNew" class="form-label">Max Tokens</label>
-                                                    <input type="number" class="form-control" id="NRMaxTokensNew">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="VRTemperatureNew" class="form-label">Temperature</label>
-                                                    <input type="text" class="form-control" id="VRTemperatureNew">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb-3">
-                                                    <label for="DSPromptNew" class="form-label">Prompt</label>
-                                                    <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPromptNew" id="DSPrompt" required=""></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-5">
-                                            <div class="col-md-12" style="text-align: right">
-                                                <button type="button" onclick="savePromptNew()" class="btn btn-primary">Salvar</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="AudioTranscription" role="tabpanel">
-                    <div class="text-center">
-                        <h4>Transcrição Áudio</h4>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
-                                    <div class="row">
-                                        <div class="form-group col">
-                                            <label class="form-label mb-1 text-2">Prompt</label>
-                                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                        <div id="GerarResumo" class="tab-pane" role="tabpanel">
+                            <h4>Geração do Resumo</h4>
+                            <p>Extrair as informações mais relevantes, mantendo os principais fatos, argumentos, dados e pontos abordados pelo texto, sem emitir opiniões, julgamentos ou análises.</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="formGeracaoResumo" action="" method="POST" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class=col-lg-12>
+                                                <h4>Características</h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-lg-6">
-                                            <label class="form-label mb-1 text-2">Arquivo de áudio</label>
-                                            <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label class="form-label">Estilo Resposta</label>
+                                                    @Html.DropDownList("IDEstiloResposta", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3" id="DSDiretriz_EstiloResposta">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label class="form-label">Formato de Saídat</label>
+                                                    @Html.DropDownList("IDFormatoSaida", (SelectList)ViewBag.FormatosSaida, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="mb-3" id="DSDiretriz_FormatoSaida">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col">
-                                            <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                        <div class="row">
+                                            <div class=col-lg-12>
+                                                <h4>Vieses</h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Político</label>
+                                                    @Html.DropDownList("IDViesPolitico", (SelectList)ViewBag.ViesesPolitico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3" id="DSDiretriz_Vies_Politico">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Econômico</label>
+                                                    @Html.DropDownList("IDViesEconomico", (SelectList)ViewBag.ViesesEconomico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3" id="DSDiretriz_Vies_Economico">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Cultural/Social</label>
+                                                    @Html.DropDownList("IDViesCultural_Social", (SelectList)ViewBag.ViesesCultural_Social, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3" id="DSDiretriz_Vies_Cultural_Social">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Filosófico/Ético</label>
+                                                    @Html.DropDownList("IDViesFilosofico_Etico", (SelectList)ViewBag.ViesesFilosofico_Etico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3" id="DSDiretriz_Vies_Filosofico_Etico">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Científico/Tecnológico</label>
+                                                    @Html.DropDownList("IDViesCientifico_Tecnologico", (SelectList)ViewBag.ViesesCientifico_Tecnologico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3" id="DSDiretriz_Vies_Cientifico_Tecnologico">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group col">
+                                                    <label class="form-label mb-1 text-2">Prompt</label>
+                                                    <textarea data-msg-required="" rows="20" class="form-control text-3 h-auto py-2" id="DSPromptResumo" name="DSPromptResumo" required=""></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="SummarizeText" role="tabpanel">
-                    <div class="text-center">
-                        <h4>Reescrevet Texto</h4>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
-                                    <div class="row">
-                                        <div class="form-group col">
-                                            <label class="form-label mb-1 text-2">Prompt</label>
-                                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                        <div id="GerarPost" class="tab-pane" role="tabpanel">
+                            <p>Gerar Post</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label class="form-label mb-1 text-2">Prompt</label>
+                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label class="form-label mb-1 text-2">Arquivo de áudio</label>
+                                                <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ComentarPosts" class="tab-pane" role="tabpanel">
+                            <p>Comentar Posts</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label class="form-label mb-1 text-2">Prompt</label>
+                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="20" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label class="form-label mb-1 text-2">Arquivo de áudio</label>
+                                                <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="TranscricaoAudio" class="tab-pane" role="tabpanel">
+                            <p>Transcrição Áudio</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label class="form-label mb-1 text-2">Prompt</label>
+                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="20" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label class="form-label mb-1 text-2">Arquivo de áudio</label>
+                                                <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ReescrevendoTexto" class="tab-pane" role="tabpanel">
+                            <p>Reescrevendo Texto</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label class="form-label mb-1 text-2">Prompt</label>
+                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="20" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label class="form-label mb-1 text-2">Arquivo de áudio</label>
+                                                <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="GerarResumo_obsoleto" class="tab-pane" role="tabpanel">
+                            <div class="card card-default">
+                                <div class="card-header" id="collapse3HeadingOne">
+                                    <h4 class="card-title m-0">
+                                        <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion3" href="#collapse3One" aria-expanded="true">
+                                            <span>Submeter Prompt</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse3One" class="collapse show" aria-labelledby="collapse3HeadingOne" data-bs-parent="#accordion3">
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Selecione um Prompt</label>
+                                                        @Html.DropDownList("Prompts", (SelectList)ViewBag.Prompts, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container" id="divSubmeterPrompt">
+                                            <div class="row mt-10">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="DSTema" class="form-label">Tema Principal</label>
+                                                        <input type="text" class="form-control text-3" id="DSTema" value="">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="DSUrlFonte" class="form-label">URL da Fonte</label>
+                                                        <input type="text" class="form-control text-3" id="DSUrlSource" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="DSComplemento" class="form-label">Observações complementares</label>
+                                                        <textarea rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSComplemento" value=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-12" style="text-align: right">
+                                                    <a class="btn btn-default" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                        Exibir Prompt...
+                                                    </a>
+                                                    <button type="button" onclick="runContentGeneratorOpenAI()" class="btn btn-primary">Submeter Prompt</button>
+                                                    <input type="hidden" id="IDPrompt" />
+                                                    <input type="hidden" id="IDTipoPrompt" value="2" data-nmtipoprompt="Natural Language" />
+                                                </div>
+                                            </div>
+                                            <div class="collapse" id="collapseExample">
+                                                <div class="card card-body text-3 mt-1">
+                                                    <form>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="NMTitulo" class="form-label">Título do Prompt</label>
+                                                                    <input type="text" class="form-control text-3" id="NMTitulo">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="NMTipoPrompt" class="form-label">Tipo do Prompt</label>
+                                                                    <h5 id="NMTipoPrompt">Natural Language</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3">
+                                                                    <label for="DSContexto" class="form-label">Contexto</label>
+                                                                    <textarea data-msg-required="Please enter your message." rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSContexto" required=""></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3">
+                                                                    <label for="DSObjetivo" class="form-label">Objetivo</label>
+                                                                    <textarea data-msg-required="Please enter your message." rows="3" class="form-control text-3 h-auto py-2" name="DSObjetivo" id="DSObjetivo" required=""></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Estilo da Resposta</label>
+                                                                    @Html.DropDownList("EstiloResposta", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="NRMaxTokens" class="form-label">Max Tokens</label>
+                                                                    <input type="number" class="form-control" id="NRMaxTokens">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="VRTemperature" class="form-label">Temperature</label>
+                                                                    <input type="text" class="form-control" id="VRTemperature">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3">
+                                                                    <label for="DSPrompt_" class="form-label">Prompt</label>
+                                                                    <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPrompt_" id="DSPrompt_" required=""></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-2">
+                                                            <div class="col-md-12" style="text-align: right">
+                                                                <button type="button" onclick="savePrompt()" class="btn btn-primary">Salvar</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="text-left">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="tabs">
+                                                            <ul class="nav nav-tabs tabs-primary justify-content-center" role="tablist">
+                                                                <li class="nav-item" role="presentation">
+                                                                    <a class="nav-link active" href="#RespostaHtml" data-bs-toggle="tab" aria-selected="true" role="tab">HTML</a>
+                                                                </li>
+                                                                <li class="nav-item" role="presentation">
+                                                                    <a class="nav-link" href="#RespostaForm" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">FORM</a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="tab-content">
+                                                                <div id="RespostaHtml" class="tab-pane active" role="tabpanel">
+                                                                    <span>Aqui será exibida resposta no formato HTML...</span>
+                                                                </div>
+                                                                <div id="RespostaForm" class="tab-pane" role="tabpanel">
+                                                                    <span id="spanRespostaFormLabel">Aqui será exibida resposta no formato FORM</span>
+                                                                    <form>
+                                                                        <div id="spanRespostaFormFields">
+                                                                            <div class="row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Autor</label>
+                                                                                        @Html.DropDownList("Pessoa", (SelectList)ViewBag.Pessoas, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Tipo do Post</label>
+                                                                                        @Html.DropDownList("TipoPost", (SelectList)ViewBag.TiposPost, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Acesso Restrito</label>
+                                                                                        @Html.DropDownList("AcessoRestrito", (SelectList)ViewBag.SimNao, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Âncora</label>
+                                                                                        <input type="text" class="form-control" id="DSAncoraPost">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Título</label>
+                                                                                        <input type="text" class="form-control" id="DSTituloPost">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">SubTitulo</label>
+                                                                                        <textarea rows="2" class="form-control text-3 h-auto py-2" id="DSSubTituloPost" required=""></textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Texto</label>
+                                                                                        <textarea rows="10" class="form-control text-3 h-auto py-2" id="DSTextoPost" required=""></textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="mb-3">
+                                                                                        <label class="form-label">Tags</label>
+                                                                                        <input type="text" class="form-control" id="DSTags">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mt-5">
+                                                                                <div class="col-md-12" style="text-align: right">
+                                                                                    <button type="button" onclick="savePost()" class="btn btn-primary">Criar Post</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-lg-6">
-                                            <label class="form-label mb-1 text-2">Arquivo de áudio</label>
-                                            <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="card card-default">
+                                <div class="card-header" id="collapse3HeadingTwo">
+                                    <h4 class="card-title m-0">
+                                        <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#accordion3" href="#collapse3Two">
+                                            <span>Criar novo Prompt</span>
+                                            <input type="hidden" id="IDPromptNew" value="0" />
+                                            <input type="hidden" id="IDTipoPromptNew" value="2" data-nmtipoprompt="Natural Language" />
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse3Two" class="collapse" aria-labelledby="collapse3HeadingTwo" data-bs-parent="#accordion3">
+                                    <div class="card-body">
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="NMTituloNew" class="form-label">Título do Prompt</label>
+                                                        <input type="text" class="form-control" id="NMTituloNew">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="NMTipoPrompt" class="form-label">Tipo do Prompt</label>
+                                                        <h5 id="NMTipoPromptNew">Natural Language</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="DSContextoNew" class="form-label">Contexto</label>
+                                                        <textarea data-msg-required="Please enter your message." rows="2" class="form-control text-3 h-auto py-2" name="DSContexto" id="DSContextoNew" required=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="DSObjetivoNew" class="form-label">Objetivo</label>
+                                                        <textarea data-msg-required="Please enter your message." rows="3" class="form-control text-3 h-auto py-2" name="DSObjetivo" id="DSObjetivoNew" required=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Estilo da Resposta</label>
+                                                        @Html.DropDownList("EstiloRespostaNew", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="NRMaxTokensNew" class="form-label">Max Tokens</label>
+                                                        <input type="number" class="form-control" id="NRMaxTokensNew">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="VRTemperatureNew" class="form-label">Temperature</label>
+                                                        <input type="text" class="form-control" id="VRTemperatureNew">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="DSPromptNew" class="form-label">Prompt</label>
+                                                        <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPromptNew" id="DSPrompt" required=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-5">
+                                                <div class="col-md-12" style="text-align: right">
+                                                    <button type="button" onclick="savePromptNew()" class="btn btn-primary">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col">
-                                            <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <h6>Como funciona</h6>
-        <p>Lead Pellentesque tempor tellus eget pellentesque. usce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesqu.</p>
-        <p>Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus.</p>
-        <p>Mauris tooltip aliquet link ultricies ante, non bold faucibus ante gravida sed. Sed ultrices rendered as italicized text pellentesque purus, vulputate volutpat ipsum hendrerit sed neque..</p>
-        <p>Left pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus.</p>
     </div>
     <div class="container text-center" id="LoadingContainer" style="height: 600px">
         <div class="mb-10" style="margin-top:100px">
@@ -452,5 +623,5 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="~/vendor/jquery/jquery.slim.min.js"></script>
 
-<script src="~/js/custom/admin-AINaturalLanguage.js?=0.3"></script>
+<script src="~/js/custom/admin-AINaturalLanguage.js?=0.6"></script>
 
