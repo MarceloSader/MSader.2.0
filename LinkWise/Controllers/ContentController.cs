@@ -1,19 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using HtmlAgilityPack;
 using LinkWise.Helpers;
 using MSader.DTO;
-using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LinkWise.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ContentController : Controller
     {
         #region Settings
@@ -32,27 +26,41 @@ namespace LinkWise.Controllers
         #endregion
 
         [HttpPost]
-        public async Task<IActionResult> RunContentGeneratorOpenAI(int idp, int idtpr, string dst, string dsu, string nmer, string nmv, string nmt, string dso, string dscon, string dsp, string dscom, int nrm, double vrt)
+        public async Task<IActionResult> RunContentGeneratorOpenAI(string dsp)
         {
 
             try
             {
-                var prompt = new PromptPostGeneratorDTO(idp, idtpr, dst, dsu, nmer, nmv, nmt, dso, dscon, dsp, dscom, nrm, vrt);
-
-                // Aqui você pode montar o prompt final com base no DTO
-                var promptMontado = MontarPromptPostGenerator(prompt);
+                var prompt = new PromptPostGeneratorDTO(dsp);
 
                 var oHelper = new AIHelper();
 
                 // Chamada do método que envia o prompt para a OpenAI
-                var resposta = await oHelper.ObterRespostaDaOpenAIAsync(promptMontado, prompt.NRMaxTokens, prompt.VRTemperature);
+                var resposta = await oHelper.GetRespostaDaOpenAIAsync(dsp);
 
-                var post = JsonSerializer.Deserialize<dynamic>(resposta, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
+                return Ok(new { res = resposta });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex); // Ou use um logger
+                return StatusCode(500, new { error = ex.Message });
+            }
 
-                return Ok(new { res = post });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetPostMetaData(string dsp)
+        {
+
+            try
+            {
+
+                var oHelper = new AIHelper();
+
+                // Chamada do método que envia o prompt para a OpenAI
+                var post = await oHelper.GetMetadataForPostAsync(dsp);
+
+                return Ok(new { Post = post });
             }
             catch (Exception ex)
             {

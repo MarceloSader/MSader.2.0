@@ -13,16 +13,16 @@
             </div>
         </div>
     </div>
-    <div class="container" id="mainContainer">
+    <div class="container" id="MainContainer">
         <div class="row mt-5">
             <div class="col-lg-12">
                 <div class="tabs">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active" href="#Scraper" data-bs-toggle="tab" aria-selected="true" role="tab">Scraper</a>
+                            <a class="nav-link active" href="#OriginalText" data-bs-toggle="tab" aria-selected="true" role="tab">Texto Original</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#GerarResumo" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Gerar Resumo</a>
+                            <a class="nav-link" href="#ProcessarPrompt" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Processar Prompt</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="#GerarPost" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab">Gerar Post</a>
@@ -41,36 +41,69 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div id="Scraper" class="tab-pane active" role="tabpanel">
-                            <h4>Extração de Conteúdo (Scraper)</h4>
-                            <p>Informe a URL da página para que o sistema capture apenas o texto principal, eliminando menus, propagandas, rodapés e outros elementos irrelevantes. O objetivo é obter o conteúdo limpo, pronto para as etapas seguintes.</p>
+                        <div id="OriginalText" class="tab-pane active" role="tabpanel">
+                            <h2 style="margin-bottom:2px"><strong>Texto Original</strong></h2>
+                            <p>O texto original pode ser obtido a partir de uma URL ou PDF (scraper), ou ainda escrito diretamente no formulário.</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                    <form class="" action="" method="POST" novalidate="novalidate">
                                         <div class="row">
-                                            <div class="form-group col-md-10">
-                                                <label class="form-label">URL</label>
-                                                <input type="text" class="form-control" id="DSUrlForScraping" placeholder="Username">
+                                            <div class="col-md-12">
+                                                <h4>Scraper</h4>
                                             </div>
-                                            <div class="form-group col-md-2">
-                                                <label class="form-label"></label><br />
-                                                <button type="button" onclick="runScraping()" class="btn btn-primary mt-2">Scrape</button>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label class="form-label">URL</label>
+                                                <input type="text" class="form-control" id="DSUrlForScraping" placeholder="URL da fonte original">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h4>PDF</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-8">
+                                                <label class="form-label mb-1 text-2">Selecione um arquivo</label>
+                                                <br /><input type="file" id="inputFileUpload" />
+                                            </div>
+                                            <div class="col-md-4" style="text-align:right">
+                                                <button type="button" onclick="runScraping()" class="btn btn-primary mt-2">Scrape URL</button>
+                                                <button type="button" onclick="runUploadPdf()" class="btn btn-primary mt-2">Enviar Arquivo PDF</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <hr />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h4>Resultado</h4>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group col">
                                                     <label class="form-label mb-1 text-2">Resultado em Texto</label>
-                                                    <textarea data-msg-required="" rows="20" class="form-control text-3 h-auto py-2" id="DSTextScraped" name="DSTextScraped" required=""></textarea>
+                                                    <textarea data-msg-required="" rows="20" class="form-control text-3 h-auto py-2" id="DSOriginalText" name="DSOriginalText" required=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-
                                                 <div class="form-group col">
-                                                    <label class="form-label mb-1 text-2">Visão HTML do resultado</label>
+                                                    <label class="form-label mb-1 text-2">Visão HTML do Resultado</label>
                                                     <div class="card">
-                                                        <div class="card-body">
-                                                            <div id="DSTextScrapedHtml"></div>
+                                                        <div style="
+                                                                    overflow-y: auto;
+                                                                    overflow-x: hidden;
+                                                                    border: 1px solid #ddd;
+                                                                    padding: 10px;
+                                                                    min-height: 530px;
+                                                                    max-height: 530px;
+                                                                    white-space: normal;
+                                                                ">
+                                                            <div id="DSOriginalTextHtml"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -80,113 +113,166 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="GerarResumo" class="tab-pane" role="tabpanel">
-                            <h4>Geração do Resumo</h4>
-                            <p>Extrair as informações mais relevantes, mantendo os principais fatos, argumentos, dados e pontos abordados pelo texto, sem emitir opiniões, julgamentos ou análises.</p>
+                        <div id="ProcessarPrompt" class="tab-pane" role="tabpanel">
+                            <h2 style="margin-bottom:2px"><strong>Processar Prompt</strong></h2>
+                            <p>Selecione o prompt, selecione as diretrizes e vieses e submeta o prompt.</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="formGeracaoResumo" action="" method="POST" novalidate="novalidate">
+                                    <form action="" method="POST" novalidate="novalidate">
                                         <div class="row">
-                                            <div class=col-lg-12>
-                                                <h4>Características</h4>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="">
-                                                    <label class="form-label">Estilo Resposta</label>
-                                                    @Html.DropDownList("IDEstiloResposta", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                            <div class="col-lg-6">
+                                                <div class="row">
+                                                    <div class=col-lg-12>
+                                                        <h4>Prompt</h4>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div class="mb-3" id="DSDiretriz_EstiloResposta">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Selecione um Prompt</label>
+                                                            @Html.DropDownList("Prompts", (SelectList)ViewBag.Prompts, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div id="divPromptDetails"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="">
+                                                            <label class="form-label">Estilo Resposta</label>
+                                                            @Html.DropDownList("IDEstiloResposta", (SelectList)ViewBag.EstilosResposta, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3" id="Diretriz_EstiloResposta"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="">
+                                                            <label class="form-label">Formato de Saídat</label>
+                                                            @Html.DropDownList("IDFormatoSaida", (SelectList)ViewBag.FormatosSaida, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3" id="Diretriz_FormatoSaida"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="">
-                                                    <label class="form-label">Formato de Saídat</label>
-                                                    @Html.DropDownList("IDFormatoSaida", (SelectList)ViewBag.FormatosSaida, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="mb-3" id="DSDiretriz_FormatoSaida">
+                                                <div class="row">
+                                                    <div class=col-lg-12>
+                                                        <h4>Vieses</h4>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class=col-lg-12>
-                                                <h4>Vieses</h4>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Político</label>
-                                                    @Html.DropDownList("IDViesPolitico", (SelectList)ViewBag.ViesesPolitico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Político</label>
+                                                            @Html.DropDownList("IDViesPolitico", (SelectList)ViewBag.ViesesPolitico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3" id="Diretriz_Vies_Politico"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Econômico</label>
+                                                            @Html.DropDownList("IDViesEconomico", (SelectList)ViewBag.ViesesEconomico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3" id="Diretriz_Vies_Economico"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Cultural/Social</label>
+                                                            @Html.DropDownList("IDViesCultural_Social", (SelectList)ViewBag.ViesesCultural_Social, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3" id="Diretriz_Vies_Cultural_Social"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Filosófico/Ético</label>
+                                                            @Html.DropDownList("IDViesFilosofico_Etico", (SelectList)ViewBag.ViesesFilosofico_Etico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3" id="Diretriz_Vies_Filosofico_Etico"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Científico/Tecnológico</label>
+                                                            @Html.DropDownList("IDViesCientifico_Tecnologico", (SelectList)ViewBag.ViesesCientifico_Tecnologico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3" id="Diretriz_Vies_Cientifico_Tecnologico"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Habilitar/Inabilitar</label><br />
+                                                            <div class="btn btn-default" id="btnResetVieses" onclick="resetVieses()">Inabilitar Vieses</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div class="mb-3" id="DSDiretriz_Vies_Politico">
-                                                        </div>
+                                                        <div class="mb-3" id="Diretriz_Vies_Neutro"></div>
+                                                        <input type="hidden" id="IDViesNeutro" value="@MSader.DTO.ConstDTO.ViesCategoria.Neutro.IDVies" />
+                                                        <input type="hidden" id="STResetVieses" value="0" />
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Econômico</label>
-                                                    @Html.DropDownList("IDViesEconomico", (SelectList)ViewBag.ViesesEconomico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <div class="mb-3" id="DSDiretriz_Vies_Economico">
+                                                        <div class="form-group col">
+                                                            <label class="form-label mb-1 text-2">Prompt</label>
+                                                            <textarea data-msg-required="" rows="20" class="form-control text-3 h-auto py-2" id="DSPrompt" name="DSPrompt" required=""></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-md-12" style="text-align: right">
+                                                        <div class="btn btn-default" type="button" onclick="clearPrompt()">Limpar</div>
+                                                        <div class="btn btn-primary" onclick="replaceTagByText('[TEXTO DA FONTE AQUI]', 'DSOriginalText', 'DSPrompt')">Obter Resumo</div>
+                                                        <div class="btn btn-primary" onclick="runContentGeneratorOpenAI()">Processar Prompt</div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Cultural/Social</label>
-                                                    @Html.DropDownList("IDViesCultural_Social", (SelectList)ViewBag.ViesesCultural_Social, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                            <div class="col-lg-6">
+                                                <div class="row">
+                                                    <div class=col-lg-12>
+                                                        <h4>Resposta</h4>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="mb-3" id="DSDiretriz_Vies_Cultural_Social">
+                                                    <div class=col-lg-12>
+                                                        <div class="form-group col">
+                                                            <label class="form-label mb-1 text-2">Visão HTML do Resultado</label>
+                                                            <div style="
+                                                                    overflow-y: auto;
+                                                                    overflow-x: hidden;
+                                                                    border: 1px solid #ddd;
+                                                                    padding: 10px;
+                                                                    min-height: 700px;
+                                                                    max-height: 700px;
+                                                                    white-space: normal;
+                                                                ">
+                                                                <div id="DSTextProcessResult"></div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Filosófico/Ético</label>
-                                                    @Html.DropDownList("IDViesFilosofico_Etico", (SelectList)ViewBag.ViesesFilosofico_Etico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="mb-3" id="DSDiretriz_Vies_Filosofico_Etico">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Científico/Tecnológico</label>
-                                                    @Html.DropDownList("IDViesCientifico_Tecnologico", (SelectList)ViewBag.ViesesCientifico_Tecnologico, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="mb-3" id="DSDiretriz_Vies_Cientifico_Tecnologico">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group col">
-                                                    <label class="form-label mb-1 text-2">Prompt</label>
-                                                    <textarea data-msg-required="" rows="20" class="form-control text-3 h-auto py-2" id="DSPromptResumo" name="DSPromptResumo" required=""></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,25 +281,146 @@
                             </div>
                         </div>
                         <div id="GerarPost" class="tab-pane" role="tabpanel">
-                            <p>Gerar Post</p>
+                            <h2 style="margin-bottom:2px"><strong>Gerar Post</strong></h2>
+                            <p>Selecione e submeta o prompt .</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="formTransciptionAudio" action="" method="POST" novalidate="novalidate">
+                                    <form action="" method="POST" novalidate="novalidate">
+
                                         <div class="row">
-                                            <div class="form-group col">
-                                                <label class="form-label mb-1 text-2">Prompt</label>
-                                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="message" required=""></textarea>
+                                            <div class="row">
+                                                <div class=col-lg-12>
+                                                    <h4>Prompt</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Selecione um Prompt</label>
+                                                        @Html.DropDownList("PromptsPost", (SelectList)ViewBag.Prompts, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                    </div>
+                                                    <div id="divPromptDetailsPost"></div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">&nbsp;</label><br />
+                                                        <div class="btn btn-primary">Processar</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group col">
+                                                        <label class="form-label mb-1 text-2">Prompt</label>
+                                                        <textarea data-msg-required="" rows="8" class="form-control text-3 h-auto py-2" id="DSPromptPost" required=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-12" style="text-align: right">
+                                                    <div class="btn btn-default" type="button" onclick="clearPromptPost()">Limpar</div>
+                                                    <div class="btn btn-primary" onclick="replaceTagByText('[TEXTO DA FONTE AQUI]', 'DSTextProcessResult', 'DSPromptPost')">Obter Resumo</div>
+                                                    <div class="btn btn-primary" onclick="runPromptPostOpenAI()">Processar Prompt</div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="form-group col-lg-6">
-                                                <label class="form-label mb-1 text-2">Arquivo de áudio</label>
-                                                <input type="file" value="" data-msg-required="Please, enter your audio file" maxlength="100" class="form-control text-3 h-auto py-2" id="fileAudio" name="fileAudio" required="">
+                                            <div class="col-lg-6">
+                                                <div class="row">
+                                                    <div class=col-lg-12>
+                                                        <h4>Post</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Autor</label>
+                                                            @Html.DropDownList("Pessoa", (SelectList)ViewBag.Pessoas, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Tipo do Post</label>
+                                                            @Html.DropDownList("TipoPost", (SelectList)ViewBag.TiposPost, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Acesso Restrito</label>
+                                                            @Html.DropDownList("AcessoRestrito", (SelectList)ViewBag.SimNao, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Âncora</label>
+                                                            <input type="text" class="form-control" id="DSAncoraPost">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Título</label>
+                                                            <input type="text" class="form-control" id="DSTituloPost">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">SubTitulo</label>
+                                                            <textarea rows="2" class="form-control text-3 h-auto py-2" id="DSSubTituloPost" required=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Texto</label>
+                                                            <textarea rows="10" class="form-control text-3 h-auto py-2" id="DSTextoPost" required=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Tags</label>
+                                                            <input type="text" class="form-control" id="DSTags">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-5">
+                                                    <div class="col-md-12" style="text-align: right">
+                                                        <button type="button" onclick="savePost()" class="btn btn-primary">Criar Post</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col">
-                                                <input type="submit" value="Submit Form" class="btn btn-primary" data-loading-text="Loading...">
+                                            <div class="col-lg-6">
+                                                <div class="row">
+                                                    <div class=col-lg-12>
+                                                        <h4>Resposta</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class=col-lg-12>
+                                                        <div class="form-group col">
+                                                            <label class="form-label mb-1 text-2">Visão HTML do Resultado</label>
+                                                            <div style="
+                                                                    overflow-y: auto;
+                                                                    overflow-x: hidden;
+                                                                    border: 1px solid #ddd;
+                                                                    padding: 10px;
+                                                                    min-height: 700px;
+                                                                    max-height: 700px;
+                                                                    white-space: normal;
+                                                                ">
+                                                                <div id="DSTextoPostHtml"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -314,7 +521,7 @@
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label class="form-label">Selecione um Prompt</label>
-                                                        @Html.DropDownList("Prompts", (SelectList)ViewBag.Prompts, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
+                                                        @Html.DropDownList("Prompts_", (SelectList)ViewBag.Prompts, null, new { @class = "form-control populate text-3", @data_plugin_selecttwo = "" })
                                                     </div>
                                                 </div>
                                             </div>
@@ -439,81 +646,10 @@
                                                                 </li>
                                                             </ul>
                                                             <div class="tab-content">
-                                                                <div id="RespostaHtml" class="tab-pane active" role="tabpanel">
+                                                                <div id="RespostaHtml_" class="tab-pane active" role="tabpanel">
                                                                     <span>Aqui será exibida resposta no formato HTML...</span>
                                                                 </div>
-                                                                <div id="RespostaForm" class="tab-pane" role="tabpanel">
-                                                                    <span id="spanRespostaFormLabel">Aqui será exibida resposta no formato FORM</span>
-                                                                    <form>
-                                                                        <div id="spanRespostaFormFields">
-                                                                            <div class="row">
-                                                                                <div class="col-md-4">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">Autor</label>
-                                                                                        @Html.DropDownList("Pessoa", (SelectList)ViewBag.Pessoas, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-4">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">Tipo do Post</label>
-                                                                                        @Html.DropDownList("TipoPost", (SelectList)ViewBag.TiposPost, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-4">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">Acesso Restrito</label>
-                                                                                        @Html.DropDownList("AcessoRestrito", (SelectList)ViewBag.SimNao, null, new { @class = "form-control populate", @data_plugin_selecttwo = "" })
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">Âncora</label>
-                                                                                        <input type="text" class="form-control" id="DSAncoraPost">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">Título</label>
-                                                                                        <input type="text" class="form-control" id="DSTituloPost">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">SubTitulo</label>
-                                                                                        <textarea rows="2" class="form-control text-3 h-auto py-2" id="DSSubTituloPost" required=""></textarea>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">Texto</label>
-                                                                                        <textarea rows="10" class="form-control text-3 h-auto py-2" id="DSTextoPost" required=""></textarea>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="mb-3">
-                                                                                        <label class="form-label">Tags</label>
-                                                                                        <input type="text" class="form-control" id="DSTags">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row mt-5">
-                                                                                <div class="col-md-12" style="text-align: right">
-                                                                                    <button type="button" onclick="savePost()" class="btn btn-primary">Criar Post</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -593,7 +729,7 @@
                                                 <div class="col-md-12">
                                                     <div class="mb-3">
                                                         <label for="DSPromptNew" class="form-label">Prompt</label>
-                                                        <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPromptNew" id="DSPrompt" required=""></textarea>
+                                                        <textarea data-msg-required="Please enter your message." rows="8" class="form-control text-3 h-auto py-2" name="DSPromptNew" id="DSPrompt_" required=""></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -623,5 +759,5 @@
 <script src="~/vendor/jquery/jquery.min.js"></script>
 <script src="~/vendor/jquery/jquery.slim.min.js"></script>
 
-<script src="~/js/custom/admin-AINaturalLanguage.js?=0.6"></script>
+<script src="~/js/custom/admin-AINaturalLanguage.js?=1.1"></script>
 

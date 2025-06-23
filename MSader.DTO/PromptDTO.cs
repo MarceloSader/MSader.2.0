@@ -100,6 +100,11 @@ namespace MSader.DTO
 
         }
 
+        public PromptPostGeneratorDTO(string dsp)
+        {
+            DSPrompt = dsp;
+        }
+
         public PromptPostGeneratorDTO(int idp, int idtp, string dst, string dsu, string nmer, string nmv, string nmt, string dso, string dscon, string dsp, string dscom, int nrm, double vrt)
         {
             IDPrompt = idp;

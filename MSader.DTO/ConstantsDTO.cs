@@ -6,7 +6,7 @@ namespace MSader.DTO
 {
     public static class ConstantsDTO
     {
-        public const string OPEN_AI_API_KEY = "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";
+        public const string OPEN_AI_API_KEY = "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";
 
         public const string AZURE_OPEN_AI_API_KEY = "2uHvncjbR2OicrSqDm3gSpE9mLAFLYshJiInTy6WOiucpWxKvP3GJQQJ99BDACYeBjFXJ3w3AAABACOGrDpA";
 
@@ -91,7 +91,7 @@ namespace MSader.DTO
             }
         }
 
-        public static class Vies
+        public static class ViesCategoria
         {
             public static class Politico
             {
@@ -116,6 +116,11 @@ namespace MSader.DTO
             public static class Cientifico_Tecnologico
             {
                 public static int ID = 5;
+            }
+
+            public static class Neutro
+            {
+                public static int IDVies = 78;
             }
 
         }

@@ -48,11 +48,13 @@ namespace LinkWise.Controllers
 
             ViewBag.Pessoas = ListHelper.GetListPessoas();
 
-            ViewBag.ViesesPolitico = ListHelper.GetListVieses(ConstDTO.Vies.Politico.ID);
-            ViewBag.ViesesEconomico = ListHelper.GetListVieses(ConstDTO.Vies.Economico.ID);
-            ViewBag.ViesesCultural_Social = ListHelper.GetListVieses(ConstDTO.Vies.Cultural_Social.ID);
-            ViewBag.ViesesFilosofico_Etico = ListHelper.GetListVieses(ConstDTO.Vies.Filosofico_Etico.ID);
-            ViewBag.ViesesCientifico_Tecnologico = ListHelper.GetListVieses(ConstDTO.Vies.Cientifico_Tecnologico.ID);
+            ViewBag.ViesesPolitico = ListHelper.GetListVieses(ConstDTO.ViesCategoria.Politico.ID);
+            ViewBag.ViesesEconomico = ListHelper.GetListVieses(ConstDTO.ViesCategoria.Economico.ID);
+            ViewBag.ViesesCultural_Social = ListHelper.GetListVieses(ConstDTO.ViesCategoria.Cultural_Social.ID);
+            ViewBag.ViesesFilosofico_Etico = ListHelper.GetListVieses(ConstDTO.ViesCategoria.Filosofico_Etico.ID);
+            ViewBag.ViesesCientifico_Tecnologico = ListHelper.GetListVieses(ConstDTO.ViesCategoria.Cientifico_Tecnologico.ID);
+
+            ViewBag.IDViesNeutro = ConstDTO.ViesCategoria.Neutro.IDVies;
 
             ViewBag.Prompts = ListHelper.GetListPrompts(ConstDTO.TipoPrompt.NaturalLanguage.ID);
 
@@ -236,33 +238,34 @@ namespace LinkWise.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RunContentGeneratorOpenAI(int idp, int idtpr, string dst, string dsu, string nmer, string nmv, string nmt, string dso, string dscon, string dsp, string dscom, int nrm, double vrt)
+        public IActionResult RunContentGeneratorOpenAI_OBSOLETO(int idp, int idtpr, string dst, string dsu, string nmer, string nmv, string nmt, string dso, string dscon, string dsp, string dscom, int nrm, double vrt)
         {
+            return Ok();
 
-            try
-            {
-                var prompt = new PromptPostGeneratorDTO(idp, idtpr, dst, dsu, nmer, nmv, nmt, dso, dscon, dsp, dscom, nrm, vrt);
+            //try
+            //{
+            //    var prompt = new PromptPostGeneratorDTO(idp, idtpr, dst, dsu, nmer, nmv, nmt, dso, dscon, dsp, dscom, nrm, vrt);
 
-                // Aqui você pode montar o prompt final com base no DTO
-                var promptMontado = MontarPromptPostGenerator(prompt);
+            //    // Aqui você pode montar o prompt final com base no DTO
+            //    var promptMontado = MontarPromptPostGenerator(prompt);
 
-                var oHelper = new AIHelper();
+            //    var oHelper = new AIHelper();
 
-                // Chamada do método que envia o prompt para a OpenAI
-                var resposta = await oHelper.ObterRespostaDaOpenAIAsync(promptMontado, prompt.NRMaxTokens, prompt.VRTemperature);
+            //    // Chamada do método que envia o prompt para a OpenAI
+            //    var resposta = await oHelper.GetRespostaDaOpenAIAsync(promptMontado);
 
-                var post = JsonSerializer.Deserialize<dynamic>(resposta, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
+            //    var post = JsonSerializer.Deserialize<dynamic>(resposta, new JsonSerializerOptions
+            //    {
+            //        PropertyNameCaseInsensitive = true
+            //    });
 
-                return Ok(new { res = post });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex); // Ou use um logger
-                return StatusCode(500, new { error = ex.Message });
-            }
+            //    return Ok(new { res = post });
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex); // Ou use um logger
+            //    return StatusCode(500, new { error = ex.Message });
+            //}
 
         }
 

@@ -37,7 +37,7 @@ namespace MSader.Controllers
 
             ViewBag.Pessoas = ListHelper.GetListPessoas();
 
-            ViewBag.Vieses = ListHelper.GetListVieses();
+            //ViewBag.Vieses = ListHelper.GetListVieses();
 
             ViewBag.Prompts = ListHelper.GetListPrompts(ConstDTO.TipoPrompt.NaturalLanguage.ID);
 
