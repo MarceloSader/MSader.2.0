@@ -6,9 +6,9 @@ namespace MSader.DTO
 {
     public static class ConstantsDTO
     {
-        public const string OPEN_AI_API_KEY = "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";
+        public const string OPEN_AI_API_KEY = "";
 
-        public const string AZURE_OPEN_AI_API_KEY = "2uHvncjbR2OicrSqDm3gSpE9mLAFLYshJiInTy6WOiucpWxKvP3GJQQJ99BDACYeBjFXJ3w3AAABACOGrDpA";
+        public const string AZURE_OPEN_AI_API_KEY = "";
 
         public const int NR_POSTS = 500;
 
